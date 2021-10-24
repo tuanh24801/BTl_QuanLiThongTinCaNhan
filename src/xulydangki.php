@@ -36,7 +36,11 @@
                 $sql2 = "INSERT INTO tb_taikhoan(tentaikhoan, email, matkhau) VALUES ('$tentaikhoan', '$email', '$matkhau_2')";
                 $result2 = mysqli_query($conn,$sql2);
                 if($result2 > 0){
+<<<<<<< HEAD
                     sendEmail('tuanh12a12001@gmail.com','code nè');
+=======
+                    sendEmail('www.phuong932001vn@gmail.com','code nè');
+>>>>>>> 88b961cdf0bf64f8d5b09673f03934b4c7a5fd34
                     header('Location: dangki.php?error=Vui lòng kiểm tra email để xác minh đăng kí');
                     exit();
                 }else{

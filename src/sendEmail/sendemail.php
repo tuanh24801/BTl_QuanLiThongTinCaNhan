@@ -15,15 +15,26 @@
             $mail->isSMTP();// gửi mail SMTP
             $mail->Host = 'smtp.gmail.com';// Set the SMTP server to send through
             $mail->SMTPAuth = true;// Enable SMTP authentication
+<<<<<<< HEAD
             $mail->Username = 'anh034207@gmail.com';// SMTP username
             $mail->Password = 'tuanh123456'; // SMTP password
+=======
+            $mail->Username = 'www.phuong932001vn@gmail.com';// SMTP username
+            $mail->Password = 'wqsidnrvcvzkauhl'; // SMTP password
+>>>>>>> 88b961cdf0bf64f8d5b09673f03934b4c7a5fd34
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;// Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port = 587; // TCP port to connect to
             $mail->CharSet = 'UTF-8';
             //Recipients
+<<<<<<< HEAD
             $mail->setFrom('anh034207@gmail.com', 'Website Quản lí thông tin cá nhân');
         
             $mail->addReplyTo('anh034207@gmail.com', 'Website Quản lí thông tin cá nhân');
+=======
+            $mail->setFrom('www.phuong932001vn@gmail.com', 'Website Quản lí thông tin cá nhân');
+        
+            $mail->addReplyTo('www.phuong932001vn@gmail.com', 'Website Quản lí thông tin cá nhân');
+>>>>>>> 88b961cdf0bf64f8d5b09673f03934b4c7a5fd34
             
             $mail->addAddress("$recipient"); // địa chỉ người nhận
             

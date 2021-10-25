@@ -40,7 +40,11 @@
                     </form>
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+<<<<<<< HEAD
                     <img src="../image/image_login.jpg " alt="" class="img-fluid" alt="Sample image">
+=======
+                    <img src="../image/image_login_2.jpg.png " alt="" class="img-fluid" alt="Sample image">
+>>>>>>> f8dd6b6bcb5b0b7fb19ca052f713649634dbaec8
                     <!-- <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="Sample image"> -->
                 </div>
                 </div>

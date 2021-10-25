@@ -21,34 +21,24 @@
             header('Location: dangki.php?error=sai mật khẩu xác nhận');
             exit();
         }else{
-            // $sql = "SELECT * FROM tb_taikhoan WHERE tentaikhoan = '$tentaikhoan'";
-            // $result = mysqli_query($conn,$sql);
-            // if(mysqli_num_rows($result) > 0){
-            //     header('Location: dangki.php?error=Tên tài khoản đã tồn tại');
-            //     exit();
-            // }
             $sql_1 = "SELECT * FROM tb_taikhoan WHERE email = '$email'";
             $result_1 = mysqli_query($conn,$sql_1);
             if(mysqli_num_rows($result_1) > 0){
                 header('Location: dangki.php?error=Gmail đã tồn tại');
                 exit();
             }else{
-                $sql2 = "INSERT INTO tb_taikhoan(tentaikhoan, email, matkhau) VALUES ('$tentaikhoan', '$email', '$matkhau_2')";
+                $code = md5(uniqid(rand(),true));
+                $pass_hash = password_hash($matkhau_2,PASSWORD_DEFAULT);
+                $sql2 = "INSERT INTO tb_taikhoan(tentaikhoan, email, matkhau, code) VALUES ('$tentaikhoan', '$email', '$pass_hash', '$code')";
                 $result2 = mysqli_query($conn,$sql2);
                 if($result2 > 0){
-<<<<<<< HEAD
-                    sendEmail('tuanh12a12001@gmail.com','code nè');
-=======
-                    sendEmail('www.phuong932001vn@gmail.com','code nè');
->>>>>>> 88b961cdf0bf64f8d5b09673f03934b4c7a5fd34
+                    sendEmail($email,$code);
                     header('Location: dangki.php?error=Vui lòng kiểm tra email để xác minh đăng kí');
                     exit();
                 }else{
                     header('Location: error/error.php');
-
                 }
             }
         }
     }
-   
 ?>

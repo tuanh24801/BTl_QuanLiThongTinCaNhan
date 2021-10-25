@@ -45,13 +45,7 @@
                             </div>
                         </div>
                         <div class="form-check d-flex justify-content-center mb-5">
-                            <input
-                            class="form-check-input me-2"
-                            type="checkbox"
-                            value="1"
-                            id="form2Example3c"
-                            name ="checkbox_login"
-                            />
+                            <input class="form-check-input me-2" type="checkbox" value="1" id="form2Example3c" name ="checkbox_login"/>
                             <label class="form-check-label" for="form2Example3">
                                 Đồng ý với điều khoản sử dụng
                             </label>
@@ -64,7 +58,9 @@
 
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="Sample image">
+                    <img src="../image/image_login_2.jpg.png " alt="" class="img-fluid" alt="Sample image">
+                    <!-- <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="Sample image"> -->
+
 
                 </div>
                 </div>

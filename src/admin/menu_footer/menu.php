@@ -26,14 +26,14 @@
                 <nav class="nav nav-pills nav-fill">
                     <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/index.php">Danh sách người dùng</a>
                     <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/dangxuat.php">Danh sách tài khoản</a>
-                    <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/banbe.php">Bài viết</a>
+                    <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/banbe.php">Danh sách nhiệm vụ người dùng</a>
                     <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">Nhóm</a>
                     <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/dangxuat.php">Đăng xuất</a>
                     <nav class="navbar">
                         <div class="container-fluid">
                             <form class="d-flex" action="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/timkiem.php" method="post">
-                                <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="timkiem">
-                                <button class="btn btn-outline-warning" type="submit" name = "timkiem">Search</button>
+                                <!--<input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="timkiem">
+                                <button class="btn btn-outline-warning" type="submit" name = "timkiem">Search</button>-->
                             </form>
                         </div>
                     </nav>

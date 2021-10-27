@@ -1,11 +1,12 @@
-/* csschung */
-*{
-    /* border: 1px solid black; */
-}
-.container{
-    /* border: 1px solid black; */
-    /* background-color: blueviolet; */
-}
+/* css chung */
+
+/* *{
+    border: 1px solid black;
+} */
+/* .container{
+    border: 1px solid black; */
+    /* background-color: blueviolet;
+} */
 /* kt css chung */
 
 /* css cho menu */
@@ -42,12 +43,18 @@
 .body .nhiemvu p{
    color: black;
 }
+/* css cho phan nhiem vu */
 .nhiemvu .card{
     border: 2px solid rgb(14, 14, 14);
 }
-.nhiemvu .card-body button:hover{
+.nhiemvu .card-body .btn_guinv:hover{
     background-color: rgb(101, 167, 101);
 }
+.nhiemvu .card-body .btn_xoanv:hover{
+    color: white;
+    background-color: rgb(201, 67, 67);
+}
+/* css cho phan nhiem vu */
 .chucnanguser i{
     color: rgb(238, 118, 118);
     font-size: 22px;
@@ -69,6 +76,8 @@
     text-decoration-line: none;
     color: #ce1e44;
 }
+/* kt csscho footer */
+
 
 /* CSS cho banbe.php */
 .body .trangbanbe{

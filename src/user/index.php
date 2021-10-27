@@ -4,6 +4,7 @@
 <!-- menu -->
 
         <!-- body -->
+        <div class="container">
         <div class="body">
             <div class="row">
                 <!-- ảnh đại diện và tên người dùng -->
@@ -34,7 +35,7 @@
                     <!-- Form cập nhật nhiệm vụ -->
                     <div class="card text-white bg-secondary mt-3 formnhiemvu">
                         <div class="card-header">Nhiệm vụ</div>
-                        <div class="card-body container-fluid">
+                        <div class="card-body">
                             <form action="">
                                 <input type="text" class="form-control mb-3" placeholder="Tên nhiệm vụ" name = "tennhiemvu">
                                 <input type="text" class="form-control mb-3" placeholder="Nội dung" name = "noidungnhiemvu">
@@ -104,7 +105,7 @@
             </div>
             <!-- bài đăng nhiệm vụ người dùng -->
             <div class="row nhiemvu mt-3">
-                <div class="col-11">
+                <div class="col-12">
                     <div class="card text-white bg-light mb-3">
                         <p class="card-header"> Tên nhiệm vụ</p>
                         <p class="card-header">20/10/2021 10:12</p>
@@ -113,7 +114,8 @@
                             <p class="card-text">phân nội dung .........</p>
                         </div>
                         <div class="card-body N">
-                            <button class="btn alert-success">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                            <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                            <button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>
                         </div>
                     </div>
                 </div>
@@ -121,7 +123,7 @@
             <!-- kt bài đăng nhiệm vụ người dùng -->
             <!-- bài đăng nhiệm vụ người dùng -->
             <div class="row nhiemvu mt-3">
-                <div class="col-11">
+                <div class="col-12">
                     <div class="card text-white bg-light mb-3">
                         <p class="card-header"> Tên nhiệm vụ</p>
                         <p class="card-header">20/10/2021 10:12</p>
@@ -130,7 +132,9 @@
                             <p class="card-text">phân nội dung .........</p>
                         </div>
                         <div class="card-body N">
-                            <button class="btn alert-success">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                            <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                            <button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>
+
                         </div>
                     </div>
                 </div>
@@ -138,7 +142,7 @@
             <!-- kt bài đăng nhiệm vụ người dùng -->
             <!-- bài đăng nhiệm vụ người dùng -->
             <div class="row nhiemvu mt-3">
-                <div class="col-11">
+                <div class="col-12">
                     <div class="card text-white bg-light mb-3">
                         <p class="card-header"> Tên nhiệm vụ</p>
                         <p class="card-header">20/10/2021 10:12</p>
@@ -147,12 +151,14 @@
                             <p class="card-text">phân nội dung .........</p>
                         </div>
                         <div class="card-body N">
-                            <button class="btn alert-success">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                            <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                            <button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- kt bài đăng nhiệm vụ người dùng -->
+        </div>
         </div>
         <!-- kt body -->
 

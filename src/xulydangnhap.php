@@ -14,9 +14,17 @@
                         header('location: ./admin/index.php');
                     }else{
                         $pass_hash = $row['matkhau'];
+                        $id_nguoidung = $row['id_taikhoan'];
                         if(password_verify($matkhau,$pass_hash)){
-                            $_SESSION['user_login'] = $tentaikhoan;
-                            header('location: ./user/index.php');
+                            $sql_nguoidung = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = '$id_nguoidung'";
+                            $result_nguoidung = mysqli_query($conn,$sql_nguoidung);
+                            if(mysqli_num_rows($result_nguoidung) > 0){
+                                $row = mysqli_fetch_assoc($result_nguoidung);
+                                $_SESSION['user_login'] = $row['id_nguoidung'];
+                                header('location: ./user/index.php');
+                            }
+                            // $_SESSION['user_login'] = $tentaikhoan;
+                            // header('location: ./user/index.php');
                         }else{
                             header("location: dangnhap.php?error= Đăng nhập thất bại user");
                         }

@@ -1,0 +1,84 @@
+/* csschung */
+*{
+    /* border: 1px solid black; */
+}
+.container{
+    /* border: 1px solid black; */
+    /* background-color: blueviolet; */
+}
+/* kt css chung */
+
+/* css cho menu */
+.menu{
+    background-color: #22a6b3;
+}
+.menu nav a{
+    color: cornsilk;
+    padding: 2%;
+    font-weight: 600;
+    background-color: cornsilk;
+}
+.menu nav a:hover{
+    color: rgb(255, 205, 4);
+
+}
+.timkiem{
+    font-size: 30px;
+}
+/* kt css cho menu */
+
+/* css cho body */
+.body .row{
+    margin: auto;
+    justify-content: center;
+}
+.body .avatar_user{
+    width: 100%;
+}
+.body .avatar_user img{
+    margin: auto;
+    width: 70%;
+}
+.body .nhiemvu p{
+   color: black;
+}
+.nhiemvu .card{
+    border: 2px solid rgb(14, 14, 14);
+}
+.nhiemvu .card-body button:hover{
+    background-color: rgb(101, 167, 101);
+}
+.chucnanguser i{
+    color: rgb(238, 118, 118);
+    font-size: 22px;
+}
+.chucnanguser a:hover{
+    background-color: rgb(212, 62, 112);
+}
+/* kt css cho body */
+
+/* csscho footer */
+.footer{
+    margin-top: 10px;
+    background-color: #22a6b3;
+}
+.footer .row{
+    padding-top: 15px;
+}
+.footer a{
+    text-decoration-line: none;
+    color: #ce1e44;
+}
+
+/* CSS cho banbe.php */
+.body .trangbanbe{
+    justify-content: flex-start;
+}
+.body .avatar_friend  img{
+    margin: auto;
+    width: 20%;
+}
+.body .avatar_friend  a{
+    text-decoration-line: none;
+    color: #ff083e;
+}

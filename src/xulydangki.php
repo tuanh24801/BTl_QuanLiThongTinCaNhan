@@ -2,6 +2,7 @@
     if(isset($_POST['btn_dangki'])){
         $tentaikhoan = $_POST['tentaikhoan'];
         $email = $_POST['email'];
+        $tennguoidung = $_POST['tennguoidung']; // thêm tên người dùng
         $matkhau = $_POST['matkhau'];
         $matkhau_2 = $_POST['matkhau_2'];
         $checkbox_login = $_POST['checkbox_login'];
@@ -29,7 +30,7 @@
             }else{
                 $code = md5(uniqid(rand(),true));
                 $pass_hash = password_hash($matkhau_2,PASSWORD_DEFAULT);
-                $sql2 = "INSERT INTO tb_taikhoan(tentaikhoan, email, matkhau, code) VALUES ('$tentaikhoan', '$email', '$pass_hash', '$code')";
+                $sql2 = "INSERT INTO tb_taikhoan(tentaikhoan,tennguoidung ,email, matkhau, code) VALUES ('$tentaikhoan','$tennguoidung' ,'$email', '$pass_hash', '$code')";
                 $result2 = mysqli_query($conn,$sql2);
                 if($result2 > 0){
                     sendEmail($email,$code);

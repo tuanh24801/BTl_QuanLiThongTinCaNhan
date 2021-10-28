@@ -1,47 +1,22 @@
-
-
-
-/* css cho menu */
-.menu{
-    background-color: #22a6b3;
+/*officanve*/
+:root{
+    --offcanvas-width:270px;
+    --topNavbarHeight: 56px;
 }
-.menu nav a{
-    color: cornsilk;
-    padding: 2%;
-    font-weight: 600;
-    background-color: cornsilk;
+.sidebar-nav{
+    width: var(--offcanvas-width);
 }
-.menu nav a:hover{
-    color: rgb(255, 205, 4);
-
+@media(min-width: 992px){
+    body{
+        overflow: auto !important;
+    }
+    .offcanvas-backdrop::before{
+        display: none;
+    }
+    .sidebar-nav{
+        transform: none;
+        visibility: visible !important;
+        top: var(--topNavbarHeight);
+        height: calc(100% - var(--topNavbarHeight));
+    }
 }
-.timkiem{
-    font-size: 30px;
-}
-/* kt css cho menu */
-
-
-/* css cho body */
-.body{
-    
-}
-
-
-
-/* css cho body */
-
-
-
-/* csscho footer */
-.footer{
-    margin-top: 10px;
-    background-color: #22a6b3;
-}
-.footer .row{
-    padding-top: 15px;
-}
-.footer a{
-    text-decoration-line: none;
-    color: #ce1e44;
-}
-/* kt csscho footer */

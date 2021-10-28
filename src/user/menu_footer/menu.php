@@ -19,18 +19,25 @@
         <!-- menu -->
         <div class="menu row">
             <nav class="nav nav-pills nav-fill">
+
                 <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/index.php">Trang cá nhân</a>
-                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/banbe.php">Bạn bè</a>
+                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/timkiem.php">Tìm kiếm</a>
                 <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">Tin nhắn</a>
-                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/dangxuat.php">Đăng xuất</a>
-                <nav class="navbar">
-                    <div class="container-fluid">
-                        <form class="d-flex" action="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/timkiem.php" method="post">
-                            <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="timkiem">
-                            <button class="btn btn-outline-warning" type="submit" name = "timkiem">Search</button>
-                        </form>
-                    </div>
-                </nav>
+                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/">Thông báo</a>
+                <div class="btn-group chucnang">
+                    <button type="button" class="btn alert-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fal fa-cogs"></i>  
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/dangxuat.php">Đăng xuất</a></li>
+                    </ul>
+                </div>
             </nav>
+            
+
+
+
         </div>
         <!-- kt menu -->

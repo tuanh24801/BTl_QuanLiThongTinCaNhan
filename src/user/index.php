@@ -1,3 +1,4 @@
+
 <?php
     include './menu_footer/menu.php';
 ?>
@@ -24,7 +25,6 @@
                                 }
                                 echo '<h3 class="card-text text-center">'.$tennguoidung.'</h3>';
                             ?>
-                            <!-- <h3 class="card-text text-center">Tên người dùng</h3> -->
                         </div>
                         <!-- kt tên người dùng -->
                     </div>
@@ -36,10 +36,10 @@
                     <div class="card text-white bg-secondary mt-3 formnhiemvu">
                         <div class="card-header">Nhiệm vụ</div>
                         <div class="card-body">
-                            <form action="">
-                                <input type="text" class="form-control mb-3" placeholder="Tên nhiệm vụ" name = "tennhiemvu">
-                                <input type="text" class="form-control mb-3" placeholder="Nội dung" name = "noidungnhiemvu">
-                                <button class="btn btn-outline-warning " type="submit" name = "dangbai">Đăng bài</button>
+                            <form action="" method="post">
+                                <input type="text" class="form-control mb-3" placeholder="Tên nhiệm vụ" name = "tennhiemvu" id="txttennhiemvu">
+                                <input type="text" class="form-control mb-3" placeholder="Nội dung" name = "noidungnhiemvu" id = "txtnoidungnhiemvu">
+                                <button class="btn btn-outline-warning " type="submit" name = "dangnhiemvu" id = "btndangnhiemvu">Đăng bài</button>
                             </form>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <div class="col-sm-3">
                             <div class="card text-red alert-danger mt-3">
                                 <div class="card-header text-center">Danh sách bạn bè</div>
-                                <a href="">
+                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/banbe.php">
                                     <div class="card-body text-center">
                                         <i class="fal fa-user-friends"></i>
                                     </div>
@@ -76,7 +76,7 @@
                         <!-- Ảnh cá nhân -->
                         <div class="col-sm-3">
                             <div class="card text-red alert-danger mt-3">
-                                <div class="card-header text-center">Ảnh</div>
+                                <div class="card-header text-center">lời mời kết bạn</div>
                                 <a href="">
                                     <div class="card-body text-center">
                                         <i class="fal fa-images"></i>
@@ -103,61 +103,40 @@
                     <!-- kt Chức năng người dùng -->     
                 </div>
             </div>
-            <!-- bài đăng nhiệm vụ người dùng -->
-            <div class="row nhiemvu mt-3">
-                <div class="col-12">
-                    <div class="card text-white bg-light mb-3">
-                        <p class="card-header"> Tên nhiệm vụ</p>
-                        <p class="card-header">20/10/2021 10:12</p>
-                        <div class="card-body N">
-                            <h5 class="card-title">Tiêu đề</h5>
-                            <p class="card-text">phân nội dung .........</p>
-                        </div>
-                        <div class="card-body N">
-                            <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
-                            <button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- kt bài đăng nhiệm vụ người dùng -->
-            <!-- bài đăng nhiệm vụ người dùng -->
-            <div class="row nhiemvu mt-3">
-                <div class="col-12">
-                    <div class="card text-white bg-light mb-3">
-                        <p class="card-header"> Tên nhiệm vụ</p>
-                        <p class="card-header">20/10/2021 10:12</p>
-                        <div class="card-body N">
-                            <h5 class="card-title">Tiêu đề</h5>
-                            <p class="card-text">phân nội dung .........</p>
-                        </div>
-                        <div class="card-body N">
-                            <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
-                            <button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- kt bài đăng nhiệm vụ người dùng -->
+
+
             <!-- bài đăng nhiệm vụ người dùng -->
-            <div class="row nhiemvu mt-3">
-                <div class="col-12">
-                    <div class="card text-white bg-light mb-3">
-                        <p class="card-header"> Tên nhiệm vụ</p>
-                        <p class="card-header">20/10/2021 10:12</p>
-                        <div class="card-body N">
-                            <h5 class="card-title">Tiêu đề</h5>
-                            <p class="card-text">phân nội dung .........</p>
-                        </div>
-                        <div class="card-body N">
-                            <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
-                            <button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
+            <div class="row bangtinnhiemvu mt-3">
+            <?php                
+                $sql_laynhiemvu = "SELECT * FROM tb_nhiemvu WHERE id_nguoidung = '$id_nguoidung' ORDER BY id_nhiemvu DESC";
+                $result_laynhiemvu = mysqli_query($conn,$sql_laynhiemvu);
+                if(mysqli_num_rows($result_laynhiemvu) > 0){
+                    while($row = mysqli_fetch_assoc($result_laynhiemvu)){
+                    echo '<div class="col-12">';
+                    echo    '<div class="card text-black bg-light mb-3">';
+                    echo        '<h5 class="card-header bangtintennhiemvu">'.$row['tennhiemvu'].'</h5>';
+                    echo        '<p class="card-header">'.$row['thoigian'].'</p>';
+                    echo        '<div class="card-body N">';
+                    echo            '<p class="card-text">'.$row['noidung'].'</p>';
+                    echo        '</div>';
+                    echo        '<div class="card-body N">';
+                    echo            '<button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>';
+                    echo            '<button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>';
+                    echo       '</div>';
+                    echo     '</div>';
+                    echo '</div>';
+
+                        }
+                    }else{
+                        //ảnh ở đây
+                    }
+            ?>
             </div>
             <!-- kt bài đăng nhiệm vụ người dùng -->
+            
+
+
         </div>
         </div>
         <!-- kt body -->

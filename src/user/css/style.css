@@ -1,15 +1,4 @@
-/* css chung */
 
-/* *{
-    border: 1px solid black;
-} */
-/* .container{
-    border: 1px solid black; */
-    /* background-color: blueviolet;
-} */
-/* kt css chung */
-
-/* css cho menu */
 .menu{
     background-color: #22a6b3;
 }
@@ -17,14 +6,24 @@
     color: cornsilk;
     padding: 2%;
     font-weight: 600;
-    background-color: cornsilk;
 }
+.menu nav .chucnang{
+    padding: 1%;
+} 
 .menu nav a:hover{
     color: rgb(255, 205, 4);
-
 }
-.timkiem{
-    font-size: 30px;
+.dropdown-menu{
+    border: 1px solid black;
+}
+.dropdown-menu li a{
+    color: rgb(250, 117, 117);
+}
+.dropdown-menu li a:hover{
+    color: rgb(245, 47, 47);
+}
+.dropdown-item{
+    background-color: #ffffff;
 }
 /* kt css cho menu */
 
@@ -47,10 +46,13 @@
 .nhiemvu .card{
     border: 2px solid rgb(14, 14, 14);
 }
-.nhiemvu .card-body .btn_guinv:hover{
+.bangtinnhiemvu .card-body .btn_guinv{
+    margin-right: 5px;
+}
+.bangtinnhiemvu .card-body .btn_guinv:hover{
     background-color: rgb(101, 167, 101);
 }
-.nhiemvu .card-body .btn_xoanv:hover{
+.bangtinnhiemvu .card-body .btn_xoanv:hover{
     color: white;
     background-color: rgb(201, 67, 67);
 }
@@ -91,3 +93,12 @@
     text-decoration-line: none;
     color: #ff083e;
 }
+/* kt CSS cho banbe.php */
+.card-body a{
+    text-decoration: none;
+}
+.user_timkiem{
+    background-color: violet;
+}
+
+/* CSS cho timkiem.php */

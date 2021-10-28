@@ -14,7 +14,8 @@
             </div>
         </div>
         <div class="khongcoketqua"></div>
-        <div class="row mt-5 danhsachtimkiem">  
+        <div class="row mt-5 danhsachtimkiem">
+            <img src="../sendEmail" alt="">  
             <img src="http://localhost/BTL_QuanLiThongTinCaNhan/image/image_4.jpg" class="img-fluid" alt="Sample image">
         </div>        
     </div>

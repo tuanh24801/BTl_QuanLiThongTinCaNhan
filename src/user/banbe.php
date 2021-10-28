@@ -56,7 +56,7 @@
                     </div>
                     <a href="">
                         <div class="alert alert-primary text-center" role="alert">
-                            nhắn tin
+                            Nhắn tin
                         </div>
                     </a>
                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
@@ -77,7 +77,7 @@
                     </div>
                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
                         <div class="alert alert-primary text-center" role="alert">
-                            nhắn tin
+                            Nhắn tin
                         </div>
                     </a>
                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
@@ -97,7 +97,7 @@
                     </div>
                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
                         <div class="alert alert-primary text-center" role="alert">
-                            nhắn tin
+                            Nhắn tin
                         </div>
                     </a>
                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
@@ -117,7 +117,7 @@
                     </div>
                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
                         <div class="alert alert-primary text-center" role="alert">
-                            nhắn tin
+                            Nhắn tin
                         </div>
                     </a>
                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">

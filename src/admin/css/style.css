@@ -13,6 +13,9 @@
     .offcanvas-backdrop::before{
         display: none;
     }
+    main{
+        margin-left: var(--offcanvas-width);
+    }
     .sidebar-nav{
         transform: none;
         visibility: visible !important;

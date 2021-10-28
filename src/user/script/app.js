@@ -1,4 +1,8 @@
 $(document).ready(function(){
+<<<<<<< HEAD
+=======
+
+>>>>>>> d16e3d991a8661bf5dcc82067f4ec69dcb30c171
     // script cho timkiem.php
     $('#txttimkiemnguoidung').keyup(function(){
         var timkiem = $('#txttimkiemnguoidung').val();
@@ -16,6 +20,7 @@ $(document).ready(function(){
             }})}
     })
 
+<<<<<<< HEAD
     // script cho dang nhiemvu.php
     $('#btndangnhiemvu').click(function(){
         var tennhiemvu = $('#txttennhiemvu').val();
@@ -27,4 +32,6 @@ $(document).ready(function(){
 
     })
 
+=======
+>>>>>>> d16e3d991a8661bf5dcc82067f4ec69dcb30c171
 })

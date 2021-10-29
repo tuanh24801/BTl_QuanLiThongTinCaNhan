@@ -1,9 +1,6 @@
 <?php
     include './menu_footer/menu.php';
 ?>
-    <!--offcanvas-->
-    <main class="mt-5 pt-3">
-        <div class="container-fluid">
             <div class="row">
                 <div class="col-md fw-bold fs-3 text-center">Dashboard</div>
             </div>
@@ -81,9 +78,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-
 <?php
-    include './menu_footer/footer.php'
-?>
+    include './menu_footer/footer.php';
+?>   

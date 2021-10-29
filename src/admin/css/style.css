@@ -3,6 +3,13 @@
     --offcanvas-width:270px;
     --topNavbarHeight: 56px;
 }
+.navbar-nav li{
+    margin-bottom: 10px;
+}
+.navbar-nav li span{
+    font-weight: bold;
+    margin-left: 4px;
+}
 .sidebar-nav{
     width: var(--offcanvas-width);
 }

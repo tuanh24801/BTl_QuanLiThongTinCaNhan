@@ -46,7 +46,8 @@
             $result_themnguoidung = mysqli_query($conn,$sql_themnguoidung);
             if($result_themnguoidung){
             }else{
-                //Thêm thất bại
+                echo 'Thêm tài khoản khách thành công';
+                exit();
             }
     }else{
         echo 'Thêm thất bại';

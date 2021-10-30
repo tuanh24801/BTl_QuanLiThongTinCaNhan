@@ -25,7 +25,6 @@
 <?php
         while($row = mysqli_fetch_assoc($result_timkiemtaikhoan)){
 ?>          
-            
             <tbody>
             <tr>
             <th scope="row"><?php echo $row['id_taikhoan']?></th>
@@ -47,19 +46,17 @@
         }
     }else{
 ?>
-            <thead class="thead-dark">
+            <thead class="alert-light">
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tên tài khoản</th>
-                    <th scope="col">Tên người dùng</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Chi tiết</th>
-                    <th scope="col">Trạng thái</th>
-                    <th scope="col">Tùy chỉnh</th>                    
+                    <th scope="col">
+                        <h5 class="text-center">Không có kết quả</h5>
+                        <img src="../admin/image_admin/img_notFound.jpg" class="img-fluid" alt="Sample image">
+                    </th>               
                 </tr>
             </thead>
             
+            
 <?php
-
+ 
     }
 ?>

@@ -1,4 +1,3 @@
-
 <?php
     include './menu_footer/menu.php';
 ?>
@@ -51,7 +50,7 @@
                         <div class="col-sm-3">
                             <div class="card text-red alert-danger mt-3">
                                 <div class="card-header text-center">Chỉnh sửa thông tin</div>
-                                <a href="">
+                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/chinhsuathongtin.php">
                                     <div class="card-body text-center">
                                         <i class="fal fa-user-edit"></i>
                                     </div>
@@ -77,7 +76,7 @@
                         <div class="col-sm-3">
                             <div class="card text-red alert-danger mt-3">
                                 <div class="card-header text-center">lời mời kết bạn</div>
-                                <a href="">
+                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/loimoiketban.php">
                                     <div class="card-body text-center">
                                         <i class="fal fa-images"></i>
                                     </div>
@@ -90,7 +89,7 @@
                         <div class="col-sm-3">
                             <div class="card text-red alert-danger mt-3">
                                 <div class="card-header text-center">Nhóm</div>
-                                <a href="">
+                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/nhom.php">
                                     <div class="card-body text-center">
                                         <i class="fal fa-users"></i>
                                     </div>
@@ -113,29 +112,71 @@
                 $result_laynhiemvu = mysqli_query($conn,$sql_laynhiemvu);
                 if(mysqli_num_rows($result_laynhiemvu) > 0){
                     while($row = mysqli_fetch_assoc($result_laynhiemvu)){
-                    echo '<div class="col-12">';
-                    echo    '<div class="card text-black bg-light mb-3">';
-                    echo        '<h5 class="card-header bangtintennhiemvu">'.$row['tennhiemvu'].'</h5>';
-                    echo        '<p class="card-header">'.$row['thoigian'].'</p>';
-                    echo        '<div class="card-body N">';
-                    echo            '<p class="card-text">'.$row['noidung'].'</p>';
-                    echo        '</div>';
-                    echo        '<div class="card-body N">';
-                    echo            '<button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>';
-                    echo            '<button class="btn alert-danger btn_xoanv" id="btn_xoanv" >Xóa nhiệm vụ <i class="fal fa-trash-alt"></i></button>';
-                    echo       '</div>';
-                    echo     '</div>';
-                    echo '</div>';
-
+            ?>
+                    <div class="col-12">
+                        <div class="card text-black bg-light mb-3">
+                            <h5 class="card-header bangtintennhiemvu" id="tennhiemvu"><?php echo $row['tennhiemvu'] ?></h5>
+                            <p class="card-header" id="thoigiandang"><?php echo $row['thoigian'] ?></p>
+                        <div class="card-body N">
+                            <p class="card-text"><?php echo $row['noidung'] ?></p>
+                        </div>
+                            <div class="card-body N">
+                                <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                                <button type="button" class="btn alert-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">xóa<i class="fal fa-trash-alt"></i></button>
+                                    <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Thông báo !</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Bạn có muốn xóa nhiệm vụ này ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn alert-secondary" data-bs-dismiss="modal">Đóng</button>
+                                        <button type="button" class="btn alert-danger" id="xoanv">Xóa</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            <!-- kt modal -->
+                            </div>
+                        </div>
+                    </div>
+                    <?php
                         }
                     }else{
-                        //ảnh ở đây
+                        echo '<h5 class="text-center mt-5">Bạn chưa có nhiệm vụ nào</h5>';
+                        echo '<img src="./image_user/image_notFound.jpg" alt="">';
                     }
             ?>
-            </div>
             <!-- kt bài đăng nhiệm vụ người dùng -->
-            
+                </div>
+                <!-- modal -->
+                <!-- Button trigger modal -->
+                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="xoanv"><i class="fal fa-trash-alt"></i></button> -->
 
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Thông báo !</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Bạn có muốn xóa nhiệm vụ này ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn alert-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn alert-danger" id="xoanv">Xóa</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                <!-- kt modal -->
 
         </div>
         </div>

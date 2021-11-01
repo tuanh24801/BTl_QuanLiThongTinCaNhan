@@ -80,17 +80,21 @@
                                             $row_to = mysqli_fetch_assoc($result_to);
                                                 echo '<input type = "text" value = '.$id_nguoidung.' id = "tinnhan_to" hidden></input>';
                                                 echo $row_to['tennguoidung'];
-                                              
                                         }
                                     }else{
-                                        $sql_to= "SELECT * FROM tb_nguoidung";
-                                        $result_to = mysqli_query($conn,$sql_to);
-                                        if(mysqli_num_rows($result_to)>0){
-                                            $row_to = mysqli_fetch_assoc($result_to);
+                                        $tinnhan_from = $_SESSION['user_login'];
+                                        $sql_banbe1 = "SELECT * FROM tb_banbe WHERE banbe_from = '$tinnhan_from'";
+                                        $result_banbe1 = mysqli_query($conn,$sql_banbe1);
+                                            $row_banbe1 = mysqli_fetch_assoc($result_banbe1);
+                                            $id_banbe = $row_banbe1['banbe_to'];
+                                            $sql_to= "SELECT * FROM tb_nguoidung WHERE id_nguoidung = '$id_banbe' ";
+                                            $result_to = mysqli_query($conn,$sql_to);
+                                            if(mysqli_num_rows($result_to)>0){
+                                                $row_to = mysqli_fetch_assoc($result_to);
                                                 $_SESSION['tinnhan_to'] = $row_to['id_nguoidung'];
                                                 echo '<input type = "text" value = '.$_SESSION['tinnhan_to'].' id = "tinnhan_to" hidden></input>';
                                                 echo $row_to['tennguoidung'];
-                                        }
+                                            }
                                     }
                                 ?>
                             </h4>
@@ -123,6 +127,7 @@
                                                 <?php
                                                 }
                                             }
+                                        }else{
                                         }
                                     }else{
                                         $sql_chats= "SELECT * FROM tb_tinnhan 
@@ -145,6 +150,8 @@
                                                     <?php
                                                 }
                                             }
+                                        }else{
+
                                         }
                                     }
                                 ?>

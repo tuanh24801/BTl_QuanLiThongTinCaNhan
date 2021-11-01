@@ -6,13 +6,13 @@ include './menu_footer/menu.php';
         <div class="row mt-5">
             <div class="col-2"></div>
             <div class="col-8 d-flex">
-                <input class="form-control me-2" type="search" id="txttimkiemtaikhoan" placeholder="Nhập tên người muốn tìm.." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" name="timkiem" id="timkiemtaikhoan"><i class="far fa-search"></i></button>
+                <input class="form-control me-2" type="search" id="txttimkiemnguoidung" placeholder="Nhập tên người muốn tìm.." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" name="timkiem" id="timkiemnguoidung"><i class="far fa-search"></i></button>
             </div>
             <div class="col-2"></div>
         </div>
         <div class="row khongkq"></div>
-        <table class="table table-dark table-striped mt-5">
+        <table class="table table-dark table-striped mt-5 danhsachnguoidung">
             <?php
             include '../config/config.php'; 
             $sql_nguoidung = "SELECT * FROM tb_nguoidung"; 

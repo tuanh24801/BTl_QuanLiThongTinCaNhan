@@ -116,15 +116,17 @@
             ?>
                     <div class="col-12">
                         <div class="card text-black bg-light mb-3">
+                            <input type="hidden" value="<?php echo $row['tennhiemvu'] ?>" name = "tennhiemvu" id="tennhiemvu">
                             <h5 class="card-header bangtintennhiemvu" id="tennhiemvu"><?php echo $row['tennhiemvu'] ?></h5>
                             <p class="card-header" id="thoigiandang"><?php echo $row['thoigian'] ?></p>
                         <div class="card-body N">
+                            <input type="hidden" value="<?php echo $row['noidung'] ?>" name = "noidungnv" id="noidungnv">
                             <p class="card-text"><?php echo $row['noidung'] ?></p>
                         </div>
                             <div class="card-body N">
-                                <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                                <button class="btn alert-success btn_guinv mt-2" id="btn_guinv" data-bs-toggle="modal" data-bs-target="#reg-modal-1" >Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
                                 <input type="hidden" value="<?php echo $row['id_nhiemvu'] ?>" name = "id_xoa" id="id_xoa">
-                                <button type="button" class="btn alert-danger btnxoa" data-bs-toggle="modal" data-bs-target="#exampleModal">xóa<i class="fal fa-trash-alt"></i></button>
+                                <button type="button" class="btn alert-danger btnxoa mt-2" >xóa<i class="fal fa-trash-alt"></i></button>
                             </div>
                         </div>
                     </div>
@@ -137,6 +139,55 @@
             ?>
                 </div>
             <!-- kt bài đăng nhiệm vụ người dùng -->
+
+                    <!-- Modal nhiệm vụ-->
+                    <div class="modal fade" id="reg-modal-1" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content p-4">
+                                <h4>Chọn người nhận</h4>
+                                <div class="col-12 banbe_user p-3">
+                                    <div class="row">
+                                        <div class="col d-flex mb-1">
+                                            <input type="text" class="form-control me-2" id="txtbanbe_tinnhan" placeholder="Nhập tên bạn bè ....">
+                                            <button class="btn btn-outline-success" type="submit" name = "timkiem" id="timkiembanbe_tinnhan" ><i class="far fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    <!-- danh sách bạn bè -->
+                                    <ul class="list-group">
+                                    <?php
+                                        $sql_banbe = "SELECT * FROM tb_banbe WHERE banbe_from = '$id_nguoidung'";
+                                        $result_banbe = mysqli_query($conn,$sql_banbe);
+                                        if(mysqli_num_rows($result_banbe)>0){
+                                            while($row_banbe = mysqli_fetch_assoc($result_banbe)){
+                                            $id_banbe = $row_banbe['banbe_to'];
+                                            $sql_user = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_banbe";
+                                            $result_user = mysqli_query($conn,$sql_user);
+                                            if(mysqli_num_rows($result_user)>0){
+                                                while($row = mysqli_fetch_assoc($result_user)){
+                                                    ?>
+                                                        <li class="mt-4 list-group-item" >
+                                                            <input type="hidden" value="<?php echo $row['id_nguoidung']?>" name = "id_nhannv" id="id_nhannv">
+                                                            <button type="button"  class="btn btnguinhiemvu">
+                                                                 <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
+                                                                 <?php echo $row['tennguoidung'] ?>
+                                                            </button>
+                                                        </li>
+                                                    <?php
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ?>
+                                    </ul>
+                                    <!-- kt danh sách bạn bè -->
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    <!-- Modal -->
+                    
+
+                 <!-- Lịch hẹn -->
                     <div class="col-4 lichhen">
                         <form class="mt-3">
                             <div class="mb-3">
@@ -162,15 +213,18 @@
                                 while($row = mysqli_fetch_assoc($result_laylichhen)){
                         ?>
                                 <div class="card text-black bg-light mb-3 mt-3">
+                                    <input type="hidden" value="<?php echo $row['tenlichhen']?>" name = "tenlich" id="tenlich">
                                     <h5 class="card-header" id="tenlich"><?php echo $row['tenlichhen']?></h5>
+                                    <input type="hidden" value="<?php echo $row['thoigian']?>" name = "thoigianlich" id="thoigianlich">
                                     <p class="card-header" id="thoigian_lich">Thời hạn: <?php echo $row['thoigian']?></p>
                                     <div class="card-body N">
+                                        <input type="hidden" value="<?php echo $row['noidung']?>" name = "noidunglich" id="noidunglich">
                                         <p class="card-text"><?php echo $row['noidung']?></p>
                                     </div>
                                     <div class="card-body N">
-                                        <button class="btn alert-success btn_guinv" id="btn_guinv">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
+                                        <button class="btn alert-success btn_guinv mt-2" id="btn_guinv" data-bs-toggle="modal" data-bs-target="#reg-modal">Gửi cho bạn bè <i class="fal fa-paper-plane"></i></button>
                                         <input type="hidden" value="<?php echo $row['id_lichhen']?>" name = "id_xoalich" id="id_xoalich">
-                                        <button type="button" class="btn alert-danger btnxoalich">xóa<i class="fal fa-trash-alt"></i></button>
+                                        <button type="button" class="btn alert-danger btnxoalich mt-2">xóa<i class="fal fa-trash-alt"></i></button>
                                     </div>
                                 </div>
                                 <?php
@@ -182,7 +236,51 @@
                         ?>
                         <!-- kt hiển thị danh sách lịch hẹn -->
                     </div>
-   
+                    <!-- Modal lịch hẹn-->
+                    <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content p-4">
+                                <h4>Chọn người nhận</h4>
+                                <div class="col-12 banbe_user p-3">
+                                    <div class="row">
+                                        <div class="col d-flex mb-1">
+                                            <input type="text" class="form-control me-2" id="txtbanbe_tinnhan" placeholder="Nhập tên bạn bè ....">
+                                            <button class="btn btn-outline-success" type="submit" name = "timkiem" id="timkiembanbe_tinnhan" ><i class="far fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    <!-- danh sách bạn bè -->
+                                    <ul class="list-group">
+                                    <?php
+                                        $sql_banbe = "SELECT * FROM tb_banbe WHERE banbe_from = '$id_nguoidung'";
+                                        $result_banbe = mysqli_query($conn,$sql_banbe);
+                                        if(mysqli_num_rows($result_banbe)>0){
+                                            while($row_banbe = mysqli_fetch_assoc($result_banbe)){
+                                            $id_banbe = $row_banbe['banbe_to'];
+                                            $sql_user = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_banbe";
+                                            $result_user = mysqli_query($conn,$sql_user);
+                                            if(mysqli_num_rows($result_user)>0){
+                                                while($row = mysqli_fetch_assoc($result_user)){
+                                                    ?>
+                                                        <li class="mt-4 list-group-item" >
+                                                            <input type="hidden" value="<?php echo $row['id_nguoidung']?>" name = "id_nhanlich" id="id_nhanlich">
+                                                            <button type="button"  class="btn btnguilichhen">
+                                                                 <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
+                                                                 <?php echo $row['tennguoidung'] ?>
+                                                            </button>
+                                                        </li>
+                                                    <?php
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ?>
+                                    </ul>
+                                    <!-- kt danh sách bạn bè -->
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    <!-- Modal -->
 
             </div>
         </div>

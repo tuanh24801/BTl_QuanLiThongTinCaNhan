@@ -9,7 +9,17 @@ $(document).ready(function(){
             }
         )
     })
-    //kt script cho timkiemtaikhoan
+    //sript cho timkiemnguoidung
+    $('#txttimkiemnguoidung').keyup(function(){
+        var tennguoidung = $('#txttimkiemnguoidung').val();
+        $.post('http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulytimkiemnguoidung.php',
+            {tennguoidung1: tennguoidung}, function(data){
+                $('.danhsachnguoidung').html(data);  
+                
+            }
+        )
+    })
+    
 
     //script cho them tai khoan
     $('#taotaikhoan').click(function(){

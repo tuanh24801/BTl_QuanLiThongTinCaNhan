@@ -40,7 +40,7 @@ if (!isset($_SESSION['admin_login'])) {
 <thead class="alert-light">
     <tr>
         <th scope="col">
-            <h5 class="text-center">Không có kết quả j hết</h5>
+            <h5 class="text-center">Không có kết quả </h5>
             <img src="../admin/image_admin/img_notFound.jpg" class="img-fluid" alt="Sample image">
         </th>
     </tr>

@@ -19,13 +19,14 @@
                         if(mysqli_num_rows($result_user) > 0){
                             while($row = mysqli_fetch_assoc($result_user)){
                             ?>
+                                
                                 <div class="col-lg-3">
                                     <div class="card avatar_friend mt-3">
                                         <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <p class="card-text text-center"><a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/index.php?id=.."><?php echo $row['tennguoidung']?></a></p>
+                                            <p class="card-text text-center"><a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/trangcanhannguoidung.php?id_nguoidung=<?php echo $row['id_nguoidung']?>"><?php echo $row['tennguoidung']?></a></p>
                                         </div>
-                                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
+                                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php?tinnhan_to=<?php echo $row['id_nguoidung']?>">
                                             <div class="alert alert-primary text-center" role="alert">
                                                 Nhắn tin
                                             </div>

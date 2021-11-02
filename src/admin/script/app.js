@@ -57,10 +57,10 @@ $(document).ready(function(){
     })
     //kt script cho sua tai khoan
 
-    //script cho sua tai khoan
-   
     
-    //script xóa tài khoản 
+   
+
+   //script xóa tài khoản 
     $('.btn_xoatk').click(function(){
         var xoa_id = $(this).closest("tr").find("#xoa_id").val();
         swal({
@@ -69,11 +69,11 @@ $(document).ready(function(){
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
+        })
+        .then((willDelete) => {
             if (willDelete) {
-              $.post(
-                  'http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulyxoataikhoan.php', 
+            $.post(
+                'http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulyxoataikhoan.php', 
                 {
                     xoa_id:xoa_id,
                     delete_btn_set: 1
@@ -85,10 +85,7 @@ $(document).ready(function(){
                     })
                 })
             }
-          });
+        });
     })
-    //kt script xóa tài khoản
-    
-    
-    
+//kt script xóa tài khoản
 })

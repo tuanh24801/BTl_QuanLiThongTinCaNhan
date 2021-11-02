@@ -15,7 +15,7 @@
         <table class="table table-dark mt-5 danhsach">  
             <?php
                 include '../config/config.php';
-                $sql_taikhoan = "SELECT * FROM tb_taikhoan";
+                $sql_taikhoan = "SELECT * FROM tb_taikhoan WHERE muc != '1'";
                 $result_taikhoan = mysqli_query($conn,$sql_taikhoan);
                 if(mysqli_num_rows($result_taikhoan) > 0 ){
             ?>
@@ -28,6 +28,7 @@
                         <th scope="col">Chi tiết</th>
                         <th scope="col">Trạng thái</th>
                         <th scope="col">Tùy chỉnh</th>
+                        <th scope="col">Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,8 @@
                     }
                 ?>
                 <td><a href = "chinhsuataikhoan.php?id=<?php echo $row['id_taikhoan']?>" class="btn alert-light"><i class="fal fa-user-edit"></i></a></td>
+                <input type="hidden" value="<?php echo $row['id_taikhoan'] ?>" id="xoa_id">
+                <td><button type="button" class="btn btn-danger btn_xoatk" id="">Xóa</button></td>
                 </tr>
                 </tbody> 
             <?php

@@ -7,7 +7,7 @@
 <?php
     $tentaikhoan = $_POST['tentaikhoan'];
     include '../config/config.php';
-    $sql_timkiemtaikhoan = "SELECT * FROM tb_taikhoan WHERE tentaikhoan LIKE '$tentaikhoan%'";
+    $sql_timkiemtaikhoan = "SELECT * FROM tb_taikhoan WHERE tentaikhoan LIKE '$tentaikhoan%' AND muc != '1'";
     $result_timkiemtaikhoan  = mysqli_query($conn,$sql_timkiemtaikhoan);
     if(mysqli_num_rows($result_timkiemtaikhoan)>0){
 ?>

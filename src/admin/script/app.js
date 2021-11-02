@@ -58,7 +58,37 @@ $(document).ready(function(){
     //kt script cho sua tai khoan
 
     //script cho sua tai khoan
-    $('#')
-
-
+   
+    
+    //script xóa tài khoản 
+    $('.btn_xoatk').click(function(){
+        var xoa_id = $(this).closest("tr").find("#xoa_id").val();
+        swal({
+            title: "Xóa tài khoản này?",
+            text: "Tài khoản đã xóa không thể khôi phục được!!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              $.post(
+                  'http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulyxoataikhoan.php', 
+                {
+                    xoa_id:xoa_id,
+                    delete_btn_set: 1
+                },function(data){
+                    swal("Đã xóa tài khoản",{
+                        icon:"success",
+                    }).then((result) =>{
+                        location.reload();
+                    })
+                })
+            }
+          });
+    })
+    //kt script xóa tài khoản
+    
+    
+    
 })

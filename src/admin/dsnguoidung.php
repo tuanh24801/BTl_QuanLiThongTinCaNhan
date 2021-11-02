@@ -25,8 +25,7 @@ include './menu_footer/menu.php';
                         <th scope="col">Tên người dùng</th>
                         <th scope="col">Số điện thoại</th>
                         <th scope="col">Chi tiết</th>
-                        <th scope="col">Xóa</th>
-
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +39,7 @@ include './menu_footer/menu.php';
                             <th scope="row"><?php echo $row['sodienthoai'] ?></th>
                             
                             <td><a href="chitietnguoidung.php?id=<?php echo $row['id_nguoidung'] ?>" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a></td>
-                            <td><a href="xoanguoidung.php?id=<?php echo $row['id_nguoidung'] ?>" class="btn alert-light"><i class="fas fa-trash-alt"></i></a></td>
+                            
                         </tr>
                 </tbody>
             <?php

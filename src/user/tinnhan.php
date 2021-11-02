@@ -80,22 +80,25 @@
                                             $row_to = mysqli_fetch_assoc($result_to);
                                                 echo '<input type = "text" value = '.$id_nguoidung.' id = "tinnhan_to" hidden></input>';
                                                 echo $row_to['tennguoidung'];
+                                                
                                         }
                                     }else{
                                         $tinnhan_from = $_SESSION['user_login'];
                                         $sql_banbe1 = "SELECT * FROM tb_banbe WHERE banbe_from = '$tinnhan_from'";
                                         $result_banbe1 = mysqli_query($conn,$sql_banbe1);
+                                        if(mysqli_num_rows($result_banbe1) > 0){
                                             $row_banbe1 = mysqli_fetch_assoc($result_banbe1);
                                             $id_banbe = $row_banbe1['banbe_to'];
                                             $sql_to= "SELECT * FROM tb_nguoidung WHERE id_nguoidung = '$id_banbe' ";
                                             $result_to = mysqli_query($conn,$sql_to);
-                                            if(mysqli_num_rows($result_to)>0){
                                                 $row_to = mysqli_fetch_assoc($result_to);
                                                 $_SESSION['tinnhan_to'] = $row_to['id_nguoidung'];
                                                 echo '<input type = "text" value = '.$_SESSION['tinnhan_to'].' id = "tinnhan_to" hidden></input>';
                                                 echo $row_to['tennguoidung'];
+                                                
                                             }
-                                    }
+                                        }
+                                    
                                 ?>
                             </h4>
                             <!-- hiển thị tên người nhận trong đoạn chat -->
@@ -103,62 +106,64 @@
                         <!-- nội đoạn chat người dùng -->
                         <div class="modal-body" id="msBody">
                                 <?php
-                                    $tinnhan_from = $_SESSION['user_login'];
-                                    $tinnhan_to_2 = $_SESSION['tinnhan_to'];
-                                    if(isset($_GET['tinnhan_to'])){
-                                        $tinnhan_to = $_GET['tinnhan_to'];
-                                        $sql_chats= "SELECT * FROM tb_tinnhan 
-                                        WHERE (tinnhan_from = '$tinnhan_from' AND tinnhan_to = '$tinnhan_to') 
-                                        OR (tinnhan_from = '$tinnhan_to' AND tinnhan_to = '$tinnhan_from')";
-                                        $result_chats= mysqli_query($conn,$sql_chats);
-                                        if(mysqli_num_rows($result_chats)>0){
-                                            while($row_chat = mysqli_fetch_assoc($result_chats)){
-                                                if($row_chat['tinnhan_from'] == $tinnhan_from){
-                                                ?>
-                                                    <div class="noidungphai">
-                                                        <p><?php echo $row_chat['noidung'] ?></p>
-                                                    </div>
-                                                <?php
-                                                }else{
-                                                ?>
-                                                    <div class="noidungtrai">
-                                                        <p><?php echo $row_chat['noidung'] ?></p>
-                                                    </div>
-                                                <?php
-                                                }
-                                            }
-                                        }else{
-                                        }
-                                    }else{
-                                        $sql_chats= "SELECT * FROM tb_tinnhan 
-                                        WHERE (tinnhan_from = '$tinnhan_from' AND tinnhan_to = '$tinnhan_to_2') 
-                                        OR (tinnhan_from = '$tinnhan_to_2' AND tinnhan_to = '$tinnhan_from')";
-                                        $result_chats= mysqli_query($conn,$sql_chats);
-                                        if(mysqli_num_rows($result_chats)>0){
-                                            while($row_chat = mysqli_fetch_assoc($result_chats)){
-                                                if($row_chat['tinnhan_from'] == $tinnhan_from){
+                                    if(isset($_SESSION['tinnhan_to'])){
+                                        $tinnhan_from = $_SESSION['user_login'];
+                                        $tinnhan_to_2 = $_SESSION['tinnhan_to'];
+                                        if(isset($_GET['tinnhan_to'])){
+                                            $tinnhan_to = $_GET['tinnhan_to'];
+                                            $sql_chats= "SELECT * FROM tb_tinnhan 
+                                            WHERE (tinnhan_from = '$tinnhan_from' AND tinnhan_to = '$tinnhan_to') 
+                                            OR (tinnhan_from = '$tinnhan_to' AND tinnhan_to = '$tinnhan_from')";
+                                            $result_chats= mysqli_query($conn,$sql_chats);
+                                            if(mysqli_num_rows($result_chats)>0){
+                                                while($row_chat = mysqli_fetch_assoc($result_chats)){
+                                                    if($row_chat['tinnhan_from'] == $tinnhan_from){
                                                     ?>
                                                         <div class="noidungphai">
                                                             <p><?php echo $row_chat['noidung'] ?></p>
                                                         </div>
                                                     <?php
-                                                }else{
+                                                    }else{
                                                     ?>
                                                         <div class="noidungtrai">
                                                             <p><?php echo $row_chat['noidung'] ?></p>
                                                         </div>
                                                     <?php
+                                                    }
                                                 }
+                                            }else{
                                             }
                                         }else{
+                                            $sql_chats= "SELECT * FROM tb_tinnhan 
+                                            WHERE (tinnhan_from = '$tinnhan_from' AND tinnhan_to = '$tinnhan_to_2') 
+                                            OR (tinnhan_from = '$tinnhan_to_2' AND tinnhan_to = '$tinnhan_from')";
+                                            $result_chats= mysqli_query($conn,$sql_chats);
+                                            if(mysqli_num_rows($result_chats)>0){
+                                                while($row_chat = mysqli_fetch_assoc($result_chats)){
+                                                    if($row_chat['tinnhan_from'] == $tinnhan_from){
+                                                        ?>
+                                                            <div class="noidungphai">
+                                                                <p><?php echo $row_chat['noidung'] ?></p>
+                                                            </div>
+                                                        <?php
+                                                    }else{
+                                                        ?>
+                                                            <div class="noidungtrai">
+                                                                <p><?php echo $row_chat['noidung'] ?></p>
+                                                            </div>
+                                                        <?php
+                                                    }
+                                                }
+                                            }else{
 
+                                            }
                                         }
                                     }
                                 ?>
                         </div>
                         <div class="modal-footer d-flex">
                             <input name="" id="noidung" class="form-control"></input>
-                            <button id="send" class="btn btn_guidi" type ="submit" style="height: 70%;"> Gửi <i class="fal fa-paper-plane"></i></button>
+                            <button id="guitinnhan" class="btn btn_guidi" type ="submit" style="height: 70%;"> Gửi <i class="fal fa-paper-plane"></i></button>
                         </div>
                     </div>
                     <!--kt nội dung đoạn chat người dùng -->

@@ -42,21 +42,27 @@
 .body .nhiemvu p{
    color: black;
 }
-/* css cho phan nhiem vu */
+/* kt css cho body */
+
+/* css cho phan index nhiem vu */
 .nhiemvu .card{
     border: 2px solid rgb(14, 14, 14);
 }
 .bangtinnhiemvu .card-body .btn_guinv{
     margin-right: 5px;
 }
-.bangtinnhiemvu .card-body .btn_guinv:hover{
-    background-color: rgb(101, 167, 101);
+
+.btn_guinv:hover{
+    background-color: rgb(68, 168, 68);
 }
-.bangtinnhiemvu .card-body .btn_xoanv:hover{
-    color: white;
-    background-color: rgb(201, 67, 67);
+.btnxoa:hover{
+    background-color: rgb(214, 90, 90);
 }
-/* css cho phan nhiem vu */
+.card-body button:hover{
+    color: rgb(230, 230, 230);
+    
+}
+
 .chucnanguser i{
     color: rgb(238, 118, 118);
     font-size: 22px;
@@ -64,7 +70,18 @@
 .chucnanguser a:hover{
     background-color: rgb(212, 62, 112);
 }
-/* kt css cho body */
+/* css cho phan index nhiem vu */
+
+/* CSS cho lịch hẹn */
+.lichhen{
+    border-radius: 12px;
+    background-color: rgb(231, 231, 231);
+    box-shadow: 7px 7px 4px rgb(228, 228, 228);
+}
+.btnxoalich:hover{
+    background-color: rgb(214, 90, 90);
+}
+/* kt CSS cho lịch hẹn */
 
 /* csscho footer */
 .footer{
@@ -94,11 +111,139 @@
     color: #ff083e;
 }
 /* kt CSS cho banbe.php */
-.card-body a{
-    text-decoration: none;
+
+
+/* CSS cho tinnhan */
+.profile_user{
+    align-items: center;
 }
-.user_timkiem{
-    background-color: violet;
+.banbe_user ul li{
+    list-style: none;
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 12px;
+    word-wrap:break-word;
+}
+.banbe_user ul li:hover{
+ 
+    background-color: rgb(248, 123, 123);
+}
+.banbe_user ul li img{
+    max-width: 50px;
+}
+.banbe_user ul li a{
+    text-decoration: none;
+    color: rgb(49, 49, 49);
+    font-weight: 700;
+}
+.banbe_user{
+    height: 600px;
+    background-color: #d1cece;
+    overflow-y: scroll;
+    border-radius: 12px;
+}
+.modal-body{
+    height: 450px;
+    overflow-y:scroll; 
+    overflow-x:hidden;
+}
+.khungchat{
+    background-color: rgb(243, 243, 252);   
+    border-radius: 12px;
+    box-shadow: 7px 7px 4px rgb(177, 176, 176);
+
+}
+.Tenuser{
+    border-radius: 6px;
+    padding: 10px;
+    background-color: rgb(114, 112, 112);
+    color: rgb(199, 198, 198);
 }
 
-/* CSS cho timkiem.php */
+.noidungphai{
+    text-align:right;
+}
+.noidungphai p{
+    background-color:rgb(61, 61, 61);
+    color: white; 
+    word-wrap:break-word;
+    display:inline-block;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    border-radius:10px;
+    max-width: 70%;
+}
+.noidungtrai{
+    text-align:left;
+}
+.noidungtrai p {
+    background-color:rgb(228, 228, 228); 
+    word-wrap:break-word;
+    color: black;
+    display:inline-block;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    border-radius:10px;
+    max-width: 70%;
+}
+.btn_guidi{
+    border: 1px solid white;
+    font-weight: 700;
+    color: rgb(247, 226, 226);
+    background-color: rgb(241, 133, 114);
+}
+.btn_guidi:hover{
+    border: 1px solid rgb(240, 83, 83);
+    color: rgb(241, 133, 114);
+    background-color: rgb(247, 226, 226);
+}
+
+/* kt CSS  cho tin nhan*/
+
+/* CSS  cho timkiem*/
+.box_user_timkiem a{
+    text-decoration: none;
+}
+.box_user_timkiem p{
+    font-weight: 700;
+    color: springgreen;
+}
+/* kt CSS  cho timkiem*/
+
+
+/* CSS cho lời mời kết bạn */
+.form_loimoi{
+    align-items: center;
+    background-color: rgb(241, 241, 241);
+    box-shadow: 7px 7px 4px rgb(228, 228, 228);
+}
+.form_loimoi img{
+    width: 90%;
+}
+/* kt CSS cho lời mời kết bạn */
+
+
+/* CSS cho trang ca nhan nguoi dung */
+.bangthongtincanhan{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(228, 228, 228);
+    align-items: center;
+}
+.icon_trangcanhan{
+    color: rgb(43, 184, 54);
+}
+.icon_trangcanhan:hover{
+    background-color: rgb(49, 179, 77);
+    color: white;
+
+}
+
+/* kt CSS cho trang ca nhan nguoi dung */
+
+
+
+
+

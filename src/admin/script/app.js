@@ -88,4 +88,42 @@ $(document).ready(function(){
         });
     })
 //kt script xóa tài khoản
+    //script tìm kiếm nhiệm vụ 
+    $('#txttimkiemnhiemvu').keyup(function(){
+        var tennhiemvu = $('#txttimkiemnhiemvu').val();
+        $.post('http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulytimkiemnhiemvu.php',
+            {tennhiemvu: tennhiemvu}, function(data){
+                $('.dsnhiemvu').html(data);  
+            }
+        )
+    })
+    //kt script tìm kiếm nhiệm vụ 
+     //script xóa nhiệm vụ 
+     $('.xoanhiemvu').click(function(){
+        var id_nhiemvu = $(this).closest("div").find("#id_nhiemvu").val();
+        swal({
+            title: "Xóa nhiệm vụ người dùng?",
+            text: "Nhiệm vụ đã xóa không thể khôi phục!!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              $.post(
+                  'http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulyxoanhiemvu.php', 
+                {
+                    id_nhiemvu:id_nhiemvu,
+                    delete_btn_set: 1
+                },function(data){
+                    swal("Đã xóa nhiệm vụ",{
+                        icon:"success",
+                    }).then((result) =>{
+                        location.reload();
+                    })
+                })
+            }
+          });
+    })
+    //kt script xóa nhiệm vụ  
 })

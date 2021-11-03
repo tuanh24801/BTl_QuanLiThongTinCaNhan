@@ -126,4 +126,42 @@ $(document).ready(function(){
           });
     })
     //kt script xóa nhiệm vụ  
+    //script tìm kiếm lịch hẹn
+    $('#txttimkiemlichhen').keyup(function(){
+        var tenlichhen = $('#txttimkiemlichhen').val();
+        $.post('http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulytimkiemlichhen.php',
+            {tenlichhen: tenlichhen}, function(data){
+                $('.dslichhen').html(data);  
+            }
+        )
+    })
+    //kt script tìm kiếm lịch hẹn
+    //script xóa lịch hẹn
+    $('.xoalich').click(function(){
+        var id_lichhen = $(this).closest("div").find("#id_lichhen").val();
+        swal({
+            title: "Xóa lịch hẹn người dùng?",
+            text: "Lịch hẹn đã xóa không thể khôi phục!!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              $.post(
+                  'http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulyxoalichhen.php', 
+                {
+                    id_lichhen:id_lichhen,
+                    delete_btn_set: 1
+                },function(data){
+                    swal("Đã xóa lịch hẹn",{
+                        icon:"success",
+                    }).then((result) =>{
+                        location.reload();
+                    })
+                })
+            }
+          });
+    })
+    //kt script xóa lịch hẹn
 })

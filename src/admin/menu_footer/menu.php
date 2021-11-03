@@ -102,6 +102,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/dslichhen.php" class="nav-link px-3 active">
+                            <span><i class="far fa-calendar-plus"></i></span>
+                            <span>Lịch hẹn</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/qlnhom.php" class="nav-link px-3 active">
                             <span> <i class="fas fa-user-friends"></i></span>
                             <span>Nhóm</span>

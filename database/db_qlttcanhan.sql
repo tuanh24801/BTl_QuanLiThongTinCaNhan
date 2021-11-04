@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2021 at 06:05 PM
+-- Generation Time: Nov 04, 2021 at 03:27 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -38,14 +38,8 @@ CREATE TABLE `tb_banbe` (
 --
 
 INSERT INTO `tb_banbe` (`banbe_to`, `banbe_from`, `id_banbe`) VALUES
-(35, 48, 11),
-(48, 35, 12),
-(49, 35, 15),
-(35, 49, 16),
-(52, 53, 19),
-(53, 52, 20),
-(52, 54, 21),
-(54, 52, 22);
+(77, 78, 35),
+(78, 77, 36);
 
 -- --------------------------------------------------------
 
@@ -65,18 +59,7 @@ CREATE TABLE `tb_ketban` (
 --
 
 INSERT INTO `tb_ketban` (`loimoi_from`, `loimoi_to`, `trangthai`, `id_loimoi`) VALUES
-(35, 23, 1, 1),
-(35, 0, 1, 2),
-(48, 35, 1, 7),
-(47, 35, 1, 8),
-(35, 49, 1, 9),
-(35, 50, 1, 10),
-(47, 49, 1, 11),
-(35, 48, 0, 13),
-(53, 52, 1, 14),
-(54, 52, 1, 15),
-(55, 56, 1, 16),
-(49, 55, 1, 17);
+(77, 78, 1, 21);
 
 -- --------------------------------------------------------
 
@@ -97,8 +80,7 @@ CREATE TABLE `tb_lichhen` (
 --
 
 INSERT INTO `tb_lichhen` (`id_lichhen`, `tenlichhen`, `noidung`, `thoigian`, `id_nguoidung`) VALUES
-(7, 'lịch 1', 'Nd Lịch 1', '2021-11-06', 53),
-(8, 'Nộp bài Tập lớn ', 'Nộp bài Tập lớn ', '2021-11-03', 52);
+(14, 'lịch 1', '213', '2021-11-03', 78);
 
 -- --------------------------------------------------------
 
@@ -113,21 +95,19 @@ CREATE TABLE `tb_nguoidung` (
   `ngaysinh` date NOT NULL,
   `diachi` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `id_taikhoan` int(10) UNSIGNED NOT NULL,
-  `anhdaidien` varchar(255) NOT NULL,
-  `gioitinh` tinyint(1) NOT NULL
+  `gioitinh` tinyint(1) NOT NULL,
+  `mota` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_nguoidung`
 --
 
-INSERT INTO `tb_nguoidung` (`id_nguoidung`, `tennguoidung`, `sodienthoai`, `ngaysinh`, `diachi`, `email`, `id_taikhoan`, `anhdaidien`, `gioitinh`) VALUES
-(35, 'Nguyen Anhh', '037945221', '2001-08-24', 'Hà Nội', 'tuanh12a12001@gmail.com', 35, '', 1),
-(48, 'Visitor2', '03794522000', '2021-10-01', 'Hà Tây', 'Visitor2@gmail.com', 48, '', 1),
-(49, 'Visitor3', '', '0000-00-00', '', 'Visitor3@gmail.com', 49, '', 0),
-(52, 'Phương Phạm Quang', '0379452203', '2021-09-02', 'Vĩnh Phúc', 'Phuongpham01@gmail.com', 52, '', 1),
-(53, 'Thanh Đào Nguyễn', '0379452202', '2021-12-28', 'Hưng Yên', 'ThanhDao01@gmail.com', 53, '', 0);
+INSERT INTO `tb_nguoidung` (`id_nguoidung`, `tennguoidung`, `sodienthoai`, `ngaysinh`, `diachi`, `email`, `gioitinh`, `mota`) VALUES
+(1, 'Tin nhắn hệ thống', '', '0000-00-00', '', '', 0, ''),
+(75, 'Visitor2', '', '0000-00-00', '', 'Visitor2@gmail.com', 0, ''),
+(77, 'Đào nguyễn Thanh', '', '0000-00-00', '', 'daont1810@gmail.com', 0, ''),
+(78, 'Tuấn Anh', '', '0000-00-00', '', 'tuanh12a12001@gmail.com', 0, '');
 
 -- --------------------------------------------------------
 
@@ -148,8 +128,7 @@ CREATE TABLE `tb_nhiemvu` (
 --
 
 INSERT INTO `tb_nhiemvu` (`id_nhiemvu`, `noidung`, `id_nguoidung`, `thoigian`, `tennhiemvu`) VALUES
-(1, 'nhiệm vụ thứ 5 làm phần admin\r\nnhiệm vụ thứ 1', 23, '2021-10-27 09:53:07', 'Tên nv 1'),
-(14, 'nhiệm vụ 1', 23, '2021-10-28 17:41:02', 'tuấn anhh');
+(100, '23', 78, '2021-11-04 21:13:25', 'a');
 
 -- --------------------------------------------------------
 
@@ -159,9 +138,17 @@ INSERT INTO `tb_nhiemvu` (`id_nhiemvu`, `noidung`, `id_nguoidung`, `thoigian`, `
 
 CREATE TABLE `tb_nhom` (
   `id_nhom` int(10) UNSIGNED NOT NULL,
-  `id_thanhvien` int(11) NOT NULL,
-  `tennhom` varchar(100) NOT NULL
+  `tennhom` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_nhom`
+--
+
+INSERT INTO `tb_nhom` (`id_nhom`, `tennhom`) VALUES
+(23, 'Nhomvts3'),
+(24, 'abc'),
+(25, '61TH1');
 
 -- --------------------------------------------------------
 
@@ -179,20 +166,40 @@ CREATE TABLE `tb_taikhoan` (
   `trangthai` tinyint(1) NOT NULL,
   `muc` tinyint(1) NOT NULL,
   `tennguoidung` varchar(100) NOT NULL,
-  `tk_khach` tinyint(1) NOT NULL
+  `tk_khach` tinyint(1) NOT NULL,
+  `id_nguoidung` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_taikhoan`
 --
 
-INSERT INTO `tb_taikhoan` (`id_taikhoan`, `tentaikhoan`, `matkhau`, `ngaytao`, `email`, `code`, `trangthai`, `muc`, `tennguoidung`, `tk_khach`) VALUES
-(1, 'Admin', 'Admin', '2021-10-20 00:29:35', '', '', 1, 1, '', 0),
-(35, 'user3', '$2y$10$Y4j2.X8IfP2aKVUD7lSjoOVZjXYx9D5ac85vCj5m3Bp5ix/UTZ.He', '2021-10-30 00:33:02', 'tuanh12a12001@gmail.com', 'a2de5263150fc3996a6c0415a18638af', 1, 0, 'Nguyen Anhh', 0),
-(48, 'Visitor1', '123', '2021-10-30 13:46:34', 'Visitor2@gmail.com', '', 1, 0, 'Visitor2', 1),
-(49, 'Visitor3', '123', '2021-10-30 13:47:33', 'Visitor3@gmail.com', '', 1, 0, 'Visitor3', 1),
-(52, 'PhuongPham', '123', '2021-11-02 21:40:11', 'Phuongpham01@gmail.com', '', 1, 0, 'Phương Phạm Quang', 1),
-(53, 'ThanhDao', '123', '2021-11-02 21:40:49', 'ThanhDao01@gmail.com', '', 1, 0, 'Thanh Đào Nguyễn', 1);
+INSERT INTO `tb_taikhoan` (`id_taikhoan`, `tentaikhoan`, `matkhau`, `ngaytao`, `email`, `code`, `trangthai`, `muc`, `tennguoidung`, `tk_khach`, `id_nguoidung`) VALUES
+(1, 'admin', 'admin', '2021-11-04 20:40:17', '', '', 1, 1, '', 0, 1),
+(75, 'Visitor2', '123', '2021-11-04 20:50:28', 'Visitor2@gmail.com', '', 1, 0, 'Visitor2', 1, 75),
+(77, 'user4', '$2y$10$uSrJVJ9J76fh49r.FNO3A.mphsDaULpxGFw/KKTa5g9EbQYeqRw3K', '2021-11-04 21:07:35', 'daont1810@gmail.com', '68ec53b797d28b9367b619b1bd47108a', 1, 0, 'Đào nguyễn Thanh', 0, 77),
+(78, 'user5', '$2y$10$NxkHQGrH4SnoeBMkVcobfu.vzc.YcpaftC5SGoKHbi2686TRCYEnO', '2021-11-04 21:09:45', 'tuanh12a12001@gmail.com', 'c81201ad84dfe20bf613441bc35e8a6c', 1, 0, 'Tuấn Anh', 0, 78);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_thanhviennhom`
+--
+
+CREATE TABLE `tb_thanhviennhom` (
+  `id_thanhviennhom` int(10) UNSIGNED NOT NULL,
+  `id_thanhvien` int(10) UNSIGNED NOT NULL,
+  `id_nhom` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_thanhviennhom`
+--
+
+INSERT INTO `tb_thanhviennhom` (`id_thanhviennhom`, `id_thanhvien`, `id_nhom`) VALUES
+(51, 78, 24),
+(52, 77, 25),
+(53, 78, 25);
 
 -- --------------------------------------------------------
 
@@ -212,7 +219,48 @@ CREATE TABLE `tb_tinnhan` (
 --
 
 INSERT INTO `tb_tinnhan` (`id_tinnhan`, `tinnhan_from`, `tinnhan_to`, `noidung`) VALUES
-(386, 35, 48, 'hello');
+(426, 78, 77, 'đào ơi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tinnhan_nhom`
+--
+
+CREATE TABLE `tb_tinnhan_nhom` (
+  `id_tinnhan_nhom` int(10) UNSIGNED NOT NULL,
+  `tinnhan_from` int(10) UNSIGNED NOT NULL,
+  `tinnhan_to` int(10) UNSIGNED NOT NULL,
+  `noidung` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_tinnhan_nhom`
+--
+
+INSERT INTO `tb_tinnhan_nhom` (`id_tinnhan_nhom`, `tinnhan_from`, `tinnhan_to`, `noidung`) VALUES
+(95, 78, 25, 'hic'),
+(96, 25, 77, 'Tuấn Anh:  hic');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_trangthai`
+--
+
+CREATE TABLE `tb_trangthai` (
+  `id_trangthai` int(10) UNSIGNED NOT NULL,
+  `noidung` varchar(2000) NOT NULL,
+  `id_nguoidung` int(10) UNSIGNED NOT NULL,
+  `thoigian` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_trangthai`
+--
+
+INSERT INTO `tb_trangthai` (`id_trangthai`, `noidung`, `id_nguoidung`, `thoigian`) VALUES
+(5, 'Hôm nay vui vãi lìn', 78, '2021-11-04 21:13:42');
 
 --
 -- Indexes for dumped tables
@@ -222,32 +270,37 @@ INSERT INTO `tb_tinnhan` (`id_tinnhan`, `tinnhan_from`, `tinnhan_to`, `noidung`)
 -- Indexes for table `tb_banbe`
 --
 ALTER TABLE `tb_banbe`
-  ADD PRIMARY KEY (`id_banbe`);
+  ADD PRIMARY KEY (`id_banbe`),
+  ADD KEY `banbe_from` (`banbe_from`),
+  ADD KEY `banbe_to` (`banbe_to`);
 
 --
 -- Indexes for table `tb_ketban`
 --
 ALTER TABLE `tb_ketban`
-  ADD PRIMARY KEY (`id_loimoi`);
+  ADD PRIMARY KEY (`id_loimoi`),
+  ADD KEY `loimoi_from` (`loimoi_from`),
+  ADD KEY `loimoi_to` (`loimoi_to`);
 
 --
 -- Indexes for table `tb_lichhen`
 --
 ALTER TABLE `tb_lichhen`
-  ADD PRIMARY KEY (`id_lichhen`);
+  ADD PRIMARY KEY (`id_lichhen`),
+  ADD KEY `id_nguoidung` (`id_nguoidung`);
 
 --
 -- Indexes for table `tb_nguoidung`
 --
 ALTER TABLE `tb_nguoidung`
-  ADD PRIMARY KEY (`id_nguoidung`),
-  ADD UNIQUE KEY `id_taikhoan` (`id_taikhoan`);
+  ADD PRIMARY KEY (`id_nguoidung`);
 
 --
 -- Indexes for table `tb_nhiemvu`
 --
 ALTER TABLE `tb_nhiemvu`
-  ADD PRIMARY KEY (`id_nhiemvu`);
+  ADD PRIMARY KEY (`id_nhiemvu`),
+  ADD KEY `id_nguoidung` (`id_nguoidung`);
 
 --
 -- Indexes for table `tb_nhom`
@@ -259,13 +312,37 @@ ALTER TABLE `tb_nhom`
 -- Indexes for table `tb_taikhoan`
 --
 ALTER TABLE `tb_taikhoan`
-  ADD PRIMARY KEY (`id_taikhoan`);
+  ADD PRIMARY KEY (`id_taikhoan`),
+  ADD KEY `id_nguoidung` (`id_nguoidung`);
+
+--
+-- Indexes for table `tb_thanhviennhom`
+--
+ALTER TABLE `tb_thanhviennhom`
+  ADD PRIMARY KEY (`id_thanhviennhom`),
+  ADD KEY `id_nhom` (`id_nhom`),
+  ADD KEY `id_thanhvien` (`id_thanhvien`);
 
 --
 -- Indexes for table `tb_tinnhan`
 --
 ALTER TABLE `tb_tinnhan`
-  ADD PRIMARY KEY (`id_tinnhan`);
+  ADD PRIMARY KEY (`id_tinnhan`),
+  ADD KEY `tinnhan_from` (`tinnhan_from`),
+  ADD KEY `tinnhan_to` (`tinnhan_to`);
+
+--
+-- Indexes for table `tb_tinnhan_nhom`
+--
+ALTER TABLE `tb_tinnhan_nhom`
+  ADD PRIMARY KEY (`id_tinnhan_nhom`);
+
+--
+-- Indexes for table `tb_trangthai`
+--
+ALTER TABLE `tb_trangthai`
+  ADD PRIMARY KEY (`id_trangthai`),
+  ADD KEY `id_nguoidung` (`id_nguoidung`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -275,43 +352,117 @@ ALTER TABLE `tb_tinnhan`
 -- AUTO_INCREMENT for table `tb_banbe`
 --
 ALTER TABLE `tb_banbe`
-  MODIFY `id_banbe` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_banbe` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tb_ketban`
 --
 ALTER TABLE `tb_ketban`
-  MODIFY `id_loimoi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_loimoi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tb_lichhen`
 --
 ALTER TABLE `tb_lichhen`
-  MODIFY `id_lichhen` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_lichhen` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_nhiemvu`
 --
 ALTER TABLE `tb_nhiemvu`
-  MODIFY `id_nhiemvu` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id_nhiemvu` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `tb_nhom`
 --
 ALTER TABLE `tb_nhom`
-  MODIFY `id_nhom` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nhom` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_taikhoan`
 --
 ALTER TABLE `tb_taikhoan`
-  MODIFY `id_taikhoan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_taikhoan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+--
+-- AUTO_INCREMENT for table `tb_thanhviennhom`
+--
+ALTER TABLE `tb_thanhviennhom`
+  MODIFY `id_thanhviennhom` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `tb_tinnhan`
 --
 ALTER TABLE `tb_tinnhan`
-  MODIFY `id_tinnhan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=387;
+  MODIFY `id_tinnhan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=427;
+
+--
+-- AUTO_INCREMENT for table `tb_tinnhan_nhom`
+--
+ALTER TABLE `tb_tinnhan_nhom`
+  MODIFY `id_tinnhan_nhom` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+
+--
+-- AUTO_INCREMENT for table `tb_trangthai`
+--
+ALTER TABLE `tb_trangthai`
+  MODIFY `id_trangthai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tb_banbe`
+--
+ALTER TABLE `tb_banbe`
+  ADD CONSTRAINT `tb_banbe_ibfk_1` FOREIGN KEY (`banbe_from`) REFERENCES `tb_nguoidung` (`id_nguoidung`),
+  ADD CONSTRAINT `tb_banbe_ibfk_2` FOREIGN KEY (`banbe_to`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
+
+--
+-- Constraints for table `tb_ketban`
+--
+ALTER TABLE `tb_ketban`
+  ADD CONSTRAINT `tb_ketban_ibfk_1` FOREIGN KEY (`loimoi_from`) REFERENCES `tb_nguoidung` (`id_nguoidung`),
+  ADD CONSTRAINT `tb_ketban_ibfk_2` FOREIGN KEY (`loimoi_to`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
+
+--
+-- Constraints for table `tb_lichhen`
+--
+ALTER TABLE `tb_lichhen`
+  ADD CONSTRAINT `tb_lichhen_ibfk_1` FOREIGN KEY (`id_nguoidung`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
+
+--
+-- Constraints for table `tb_nhiemvu`
+--
+ALTER TABLE `tb_nhiemvu`
+  ADD CONSTRAINT `tb_nhiemvu_ibfk_1` FOREIGN KEY (`id_nguoidung`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
+
+--
+-- Constraints for table `tb_taikhoan`
+--
+ALTER TABLE `tb_taikhoan`
+  ADD CONSTRAINT `tb_taikhoan_ibfk_1` FOREIGN KEY (`id_nguoidung`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
+
+--
+-- Constraints for table `tb_thanhviennhom`
+--
+ALTER TABLE `tb_thanhviennhom`
+  ADD CONSTRAINT `tb_thanhviennhom_ibfk_1` FOREIGN KEY (`id_nhom`) REFERENCES `tb_nhom` (`id_nhom`),
+  ADD CONSTRAINT `tb_thanhviennhom_ibfk_2` FOREIGN KEY (`id_thanhvien`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
+
+--
+-- Constraints for table `tb_tinnhan`
+--
+ALTER TABLE `tb_tinnhan`
+  ADD CONSTRAINT `tb_tinnhan_ibfk_1` FOREIGN KEY (`tinnhan_from`) REFERENCES `tb_nguoidung` (`id_nguoidung`),
+  ADD CONSTRAINT `tb_tinnhan_ibfk_2` FOREIGN KEY (`tinnhan_to`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
+
+--
+-- Constraints for table `tb_trangthai`
+--
+ALTER TABLE `tb_trangthai`
+  ADD CONSTRAINT `tb_trangthai_ibfk_1` FOREIGN KEY (`id_nguoidung`) REFERENCES `tb_nguoidung` (`id_nguoidung`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,5 @@
 <?php
-include './menu_footer/menu.php';
+    include './menu_footer/menu.php';
 ?>
 <?php
     $id_nguoidung = $_GET['id'];
@@ -7,7 +7,7 @@ include './menu_footer/menu.php';
 ?>
 <div class="container">
         <table class="table table-dark table-hover mt-5 ">
-            <h5 class="mt-5">Chi tiết người dùng: '<?php echo $id_nguoidung?>' </h5>
+            <h5 class="mt-5">Chi tiết người dùng ID: '<?php echo $id_nguoidung?>' </h5>
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Mã người dùng </th>
@@ -53,13 +53,13 @@ include './menu_footer/menu.php';
             ?>
         </table>
         <div class="row mt-5">
-                    <div class="col-2"><a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/dsnguoidung.php" class="btn btn-success">Quay lại</a></div>
-                    <div class="col-8"></div>
-                    <div class="col-2"></div>
-                </div>
+                <div class="col-2"><a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/dsnguoidung.php" class="btn btn-success">Quay lại</a></div>
+                <div class="col-8"></div>
+                <div class="col-2"></div>
             </div>
+        </div>
     </div>
 
 <?php
-include './menu_footer/footer.php';
+    include './menu_footer/footer.php';
 ?>

@@ -10,7 +10,7 @@
     $sql_timkiemtaikhoan = "SELECT * FROM tb_taikhoan WHERE tentaikhoan LIKE '$tentaikhoan%' AND muc != '1'";
     $result_timkiemtaikhoan  = mysqli_query($conn,$sql_timkiemtaikhoan);
     if(mysqli_num_rows($result_timkiemtaikhoan)>0){
-?>
+    ?>
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -22,9 +22,9 @@
                     <th scope="col">Tùy chỉnh</th>
                 </tr>
             </thead>
-<?php
+        <?php
         while($row = mysqli_fetch_assoc($result_timkiemtaikhoan)){
-?>          
+        ?>          
             <tbody>
             <tr>
             <th scope="row"><?php echo $row['id_taikhoan']?></th>
@@ -42,10 +42,10 @@
             <td><a href = "chinhsuataikhoan.php?id=<?php echo $row['id_taikhoan']?>" class="btn alert-light"><i class="fal fa-user-edit"></i></a></td>
             </tr>
             </tbody> 
-<?php
-        }
-    }else{
-?>
+        <?php
+            }
+        }else{
+        ?>
             <thead class="alert-light">
                 <tr>
                     <th scope="col">
@@ -54,7 +54,6 @@
                     </th>               
                 </tr>
             </thead>
-            
             
 <?php
  

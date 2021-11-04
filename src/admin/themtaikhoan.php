@@ -41,7 +41,7 @@
                 <div class="form-group row mt-4">
                     <label for="empPosition" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-success" id="taotaikhoan">Tạo tài khoản</button>
+                        <button type="button" class="btn btn-success" id="taotaikhoan">Tạo tài khoản</button>
                     </div>
                 </div>
             </form>

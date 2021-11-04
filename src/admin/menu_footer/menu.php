@@ -72,7 +72,7 @@
                     <li>
                         <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/index.php" class="nav-link px-3 active">
                             <span><i class="fas fa-tachometer-alt"></i></span>
-                            <span>Dashboard</span>
+                            <span>Trang chủ</span>
                         </a>
                     </li>
                     <li class="">
@@ -96,19 +96,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/nhiemvu.php" class="nav-link px-3 active">
+                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/dsnhiemvu.php" class="nav-link px-3 active">
                             <span><i class="fas fa-rocket"></i></i></span>
                             <span>Nhiệm vụ</span>
                         </a>
                     </li>
                     <li>
                         <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/dslichhen.php" class="nav-link px-3 active">
-                            <span><i class="far fa-calendar-plus"></i></span>
+                            <span><i class="fas fa-rocket"></i></i></span>
                             <span>Lịch hẹn</span>
                         </a>
                     </li>
                     <li>
-                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/qlnhom.php" class="nav-link px-3 active">
+                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/dsnhom.php" class="nav-link px-3 active">
                             <span> <i class="fas fa-user-friends"></i></span>
                             <span>Nhóm</span>
                         </a>
@@ -122,15 +122,9 @@
                         </div>
                     </li>
                     <li>
-                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/qlchat.php" class="nav-link px-3 active">
+                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/tinnhan.php" class="nav-link px-3 active">
                             <span><i class="fas fa-comment-dots"></i></span>
-                            <span>Chats</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-3 active">
-                            <span><i class="fas fa-tools"></i></span>
-                            <span>Cài Đặt </span>
+                            <span>Tin nhắn</span>
                         </a>
                     </li>
                 </ul>

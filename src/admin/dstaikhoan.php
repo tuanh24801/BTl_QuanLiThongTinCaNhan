@@ -52,14 +52,14 @@
                 ?>
                 <td><a href = "chinhsuataikhoan.php?id=<?php echo $row['id_taikhoan']?>" class="btn alert-light"><i class="fal fa-user-edit"></i></a></td>
                 <input type="hidden" value="<?php echo $row['id_taikhoan'] ?>" id="xoa_id">
-                <td><button type="button" class="btn btn-danger btn_xoatk" id=""><i class="fas fa-trash-alt"></i></button></td>
+                <td><button type="button" class="btn btn-danger btn_xoatk" id="">Xóa</button></td>
                 </tr>
                 </tbody> 
             <?php
                     }
                 }else{
-                    echo '<h4 class="text-center mt-5">không có kết quả</h4>';
-                    echo '<img src="../admin/image_admin/img_notFound.jpg" class="img-fluid" alt="Sample image">';
+                        echo '<h4 class="mt-5 text-center">Danh sách tài khoản trống</h4>';
+                        echo'<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/image_admin/image_1.jpg" class="img-fluid">';
                 }
             ?>
             

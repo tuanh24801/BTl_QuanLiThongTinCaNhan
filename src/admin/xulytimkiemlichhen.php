@@ -7,7 +7,7 @@
 ?>
     <?php
         include '../config/config.php';
-        $sql_lichhen = "SELECT * FROM tb_lichhen WHERE tenlichhen LIKE '$tenlichhen%' ";
+        $sql_lichhen = "SELECT * FROM tb_lichhen WHERE tenlichhen LIKE '$tenlichhen%' ORDER BY id_lichhen DESC";
         $result_lichhen= mysqli_query($conn,$sql_lichhen);
         if(mysqli_num_rows($result_lichhen)>0){
             while($row_lichhen = mysqli_fetch_assoc($result_lichhen)){
@@ -23,7 +23,14 @@
                                 </div>
                                 <div class="col-lg-1 col-md-3 col-sm-2">
                                     <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/trangcanhannguoidung.php?id_nguoidung= <?php echo $row_user['id_nguoidung'] ?>">
-                                        <img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="img-fluid" alt="">
+                                    <?php
+                                        $gioitinh = $row_user['gioitinh'];
+                                        if($gioitinh == '0'){
+                                            echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="img-fluid" >';
+                                        }else{
+                                            echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_male.png" class="img-fluid">';
+                                        }
+                                    ?>
                                     </a>
                                 </div>
                                 <div class="col-lg-6 col-md-4 col-sm-5">

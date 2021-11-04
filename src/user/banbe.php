@@ -22,7 +22,14 @@
                                 
                                 <div class="col-lg-3">
                                     <div class="card avatar_friend mt-3">
-                                        <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
+                                        <?php
+                                            $gioitinh = $row['gioitinh'];
+                                            if($gioitinh == '0'){
+                                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="card-img-top">';
+                                            }else{
+                                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_male.png" class="card-img-top">';
+                                            }
+                                        ?>
                                         <div class="card-body">
                                             <p class="card-text text-center"><a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/trangcanhannguoidung.php?id_nguoidung=<?php echo $row['id_nguoidung']?>"><?php echo $row['tennguoidung']?></a></p>
                                         </div>

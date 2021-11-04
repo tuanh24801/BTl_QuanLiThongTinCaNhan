@@ -31,9 +31,9 @@
                                                 Nhắn tin
                                             </div>
                                         </a>
-                                        <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">
-                                            <div class="alert alert-primary text-center" role="alert">
-                                                Hủy kết bạn
+                                        <a href="">
+                                            <div class="alert alert-info text-center" role="alert">
+                                                Bạn bè <i class="far fa-check"></i>
                                             </div>
                                         </a>
                                     </div>

@@ -20,7 +20,14 @@
                     </div>
                     <div class="col-2">
                         <div class="card avatar_user mt-3">
-                            <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
+                            <?php
+                                $gioitinh = $row_nguoigui['gioitinh'];
+                                if($gioitinh == '0'){
+                                    echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="card-img-top">';
+                                }else{
+                                    echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_male.png" class="card-img-top">';
+                                }
+                            ?>
                         </div>
                     </div>
                     <div class="col-6">

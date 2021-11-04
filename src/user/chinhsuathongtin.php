@@ -66,7 +66,12 @@
                             <input type="email" class="form-control mb-2" id="email" name="email" disabled value = "<?php echo $row['email']?>">
                         </div>
                     </div>
-
+                    <div class="form-group row mt-3">
+                        <label for="mota" class="col-sm-2 col-form-label">Mô tả chi tiết</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control mb-2" id="mota" name="mota" value = "<?php echo $row['mota']?>">
+                        </div>
+                    </div>
 
                     <?php
                     }
@@ -76,7 +81,7 @@
                 <div class="form-group row mt-3 mb-5">
                     <label for="btn" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-success mb-5" id="chinhsua">Lưu lại</button>
+                        <button type="button" class="btn btn-success mb-5" id="chinhsua">Lưu lại</button>
                     </div>
                 </div>
             </form>

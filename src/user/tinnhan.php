@@ -7,20 +7,27 @@
             <div class="img avt col-1">
             </div>
             <!-- ảnh đại diện tên người dùnng -->
-            <div class="img avt col-1">
-                <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
-            </div>
-            <input type="hidden" id="tinnhan_from" value="<?php echo $tinnhan_from ?>" ></input>
             <?php
                 include '../config/config.php';
                 $id_nguoidung = $_SESSION['user_login'];
                 $sql = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_nguoidung";
                 $result = mysqli_query($conn,$sql);
-                if(mysqli_num_rows($result) > 0){
-                    $row = mysqli_fetch_assoc($result);
-                    $tennguoidung = $row['tennguoidung'];
+                $row = mysqli_fetch_assoc($result);
+                $tennguoidung = $row['tennguoidung'];
+                
+            ?>
+            <div class="img avt col-1">
+            <?php
+                $gioitinh = $row['gioitinh'];
+                if($gioitinh == '0'){
+                    echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="card-img-top">';
+                }else{
+                    echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_male.png" class="card-img-top">';
                 }
             ?>
+            </div>
+            <input type="hidden" id="tinnhan_from" value="<?php echo $tinnhan_from ?>" ></input>
+            
             <div class="img name col-2">
                 <h4 class="algin"><?php echo $tennguoidung ?></h4>
             </div>
@@ -52,14 +59,55 @@
                                 ?>
                                     <li class="mt-4 list-group-item" >
                                         <a href="?tinnhan_to=<?php echo $row['id_nguoidung'] ?>">
-                                        <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
+                                        <?php
+                                            $gioitinh = $row['gioitinh'];
+                                            if($gioitinh == '0'){
+                                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="card-img-top" class="img-fluid" alt="Sample image">';
+                                            }else{
+                                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_male.png" class="card-img-top" class="img-fluid" alt="Sample image">';
+                                            }
+                                        ?>
+                                        <?php echo $row['tennguoidung'] ?>
+                                        </a>
+                                    </li>
+                                <?php
+                                }
+                            }else{
+                                echo '<h5 class="text-center mt-5">Danh sách bạn bè trống</h5>';
+                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
+                            }
+                        }
+                        $id_hethong = '1';
+                        $sql_hethong = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = '$id_hethong'";
+                        $result_hethong = mysqli_query($conn,$sql_hethong);
+                        if(mysqli_num_rows($result_hethong)>0){
+                            while($row = mysqli_fetch_assoc($result_hethong)){
+                                ?>
+                                    <li class="mt-4 list-group-item" >
+                                        <a href="?tinnhan_to=<?php echo $row['id_nguoidung'] ?>">
+                                        <img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/image_admin.png" class="card-img-top" alt="avthethong">
                                         <?php echo $row['tennguoidung'] ?>
                                         </a>
                                     </li>
                                 <?php
                                 }
                             }
-                        }
+                    }else{
+                        $id_hethong = '1';
+                        $sql_hethong = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = '$id_hethong'";
+                        $result_hethong = mysqli_query($conn,$sql_hethong);
+                        if(mysqli_num_rows($result_hethong)>0){
+                            while($row = mysqli_fetch_assoc($result_hethong)){
+                                ?>
+                                    <li class="mt-4 list-group-item" >
+                                        <a href="?tinnhan_to=<?php echo $row['id_nguoidung'] ?>">
+                                        <img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/image_admin.png" class="card-img-top" alt="avthethong">
+                                        <?php echo $row['tennguoidung'] ?>
+                                        </a>
+                                    </li>
+                                <?php
+                                }
+                            }
                     }
                 ?>
                 </ul>

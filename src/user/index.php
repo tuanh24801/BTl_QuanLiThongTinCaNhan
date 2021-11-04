@@ -8,31 +8,37 @@
         <div class="body">
             <div class="row">
                 <!-- ảnh đại diện và tên người dùng -->
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="card avatar_user mt-3">
-                        <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
-                        <!-- tên người dùng -->
+                        <?php
+                            include '../config/config.php';
+                            $id_nguoidung = $_SESSION['user_login'];
+                            $sql = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_nguoidung";
+                            $result = mysqli_query($conn,$sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $tennguoidung = $row['tennguoidung'];
+                            $gioitinh = $row['gioitinh'];
+                            if($gioitinh == '0'){
+                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="card-img-top" >';
+                            }else{
+                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_male.png" class="card-img-top">';
+                            }
+                        ?>
                         <div class="col">
-                            <?php
-                                include '../config/config.php';
-                                $id_nguoidung = $_SESSION['user_login'];
-                                $sql = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_nguoidung";
-                                $result = mysqli_query($conn,$sql);
-                                if(mysqli_num_rows($result) > 0){
-                                    $row = mysqli_fetch_assoc($result);
-                                    $tennguoidung = $row['tennguoidung'];
-                                }
-                                echo '<h3 class="card-text text-center">'.$tennguoidung.'</h3>';
-                            ?>
+                                <h3 class="card-text text-center"><?php echo $tennguoidung ?></h3>
                         </div>
                         <!-- kt tên người dùng -->
                     </div>
                 </div>
                 <!-- kt ảnh đại diện và tên người dùng -->
+            </div>
 
-                <div class="col-lg-8">
+            <!-- bài đăng nhiệm vụ người dùng -->
+            <div class="row bangtinnhiemvu mt-3">
+                
+                <div class="col-8 nhiemvu_post">
                     <!-- Form cập nhật nhiệm vụ -->
-                    <div class="card text-white bg-secondary mt-3 formnhiemvu">
+                    <div class="card text-white bg-secondary mt-3 formnhiemvu mb-2">
                         <div class="card-header">Nhiệm vụ</div>
                         <div class="card-body">
                             <form action="" method="post">
@@ -43,71 +49,6 @@
                         </div>
                     </div>
                     <!-- kt Form cập nhật nhiệm vụ -->
-
-                    <!-- Chức năng người dùng -->
-                    <div class="row chucnanguser">
-                        <!-- sửa thông tin -->
-                        <div class="col-sm-3">
-                            <div class="card text-red alert-danger mt-3">
-                                <div class="card-header text-center">Chỉnh sửa thông tin</div>
-                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/chinhsuathongtin.php">
-                                    <div class="card-body text-center">
-                                        <i class="fal fa-user-edit"></i>
-                                    </div>
-                                </a>
-                            </div>      
-                        </div>
-                        <!-- kt sửa thông tin -->
-
-                        <!-- danh sách bạn bè  -->
-                        <div class="col-sm-3">
-                            <div class="card text-red alert-danger mt-3">
-                                <div class="card-header text-center">Danh sách bạn bè</div>
-                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/banbe.php">
-                                    <div class="card-body text-center">
-                                        <i class="fal fa-user-friends"></i>
-                                    </div>
-                                </a>
-                            </div>      
-                        </div>
-                        <!-- kt danh sách bạn bè  -->
-
-                        <!-- Ảnh cá nhân -->
-                        <div class="col-sm-3">
-                            <div class="card text-red alert-danger mt-3">
-                                <div class="card-header text-center">Lời mời kết bạn</div>
-                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/loimoiketban.php">
-                                    <div class="card-body text-center">
-                                        <i class="fal fa-user-plus"></i>
-                                    </div>
-                                </a>
-                            </div>      
-                        </div>
-                        <!-- kt Ảnh  -->
-
-                        <!-- Nhóm -->
-                        <div class="col-sm-3">
-                            <div class="card text-red alert-danger mt-3">
-                                <div class="card-header text-center">Nhóm</div>
-                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/nhom.php">
-                                    <div class="card-body text-center">
-                                        <i class="fal fa-users"></i>
-                                    </div>
-                                </a>
-                            </div>      
-                        </div>
-                        <!-- kt nhóm  -->
-
-                    </div>
-                    <!-- kt Chức năng người dùng -->     
-                </div>
-            </div>
-
-
-
-            <!-- bài đăng nhiệm vụ người dùng -->
-            <div class="row bangtinnhiemvu mt-3">
-                <div class="col-8 nhiemvu_post">
             <?php                
                 $sql_laynhiemvu = "SELECT * FROM tb_nhiemvu WHERE id_nguoidung = '$id_nguoidung' ORDER BY id_nhiemvu DESC";
                 $result_laynhiemvu = mysqli_query($conn,$sql_laynhiemvu);
@@ -137,7 +78,7 @@
                         echo '<img src="./image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
                     }
             ?>
-                </div>
+            </div>
             <!-- kt bài đăng nhiệm vụ người dùng -->
 
                     <!-- Modal nhiệm vụ-->
@@ -188,7 +129,7 @@
                     
 
                  <!-- Lịch hẹn -->
-                    <div class="col-4 lichhen">
+                    <div class="col-4 lichhen mt-3">
                         <form class="mt-3">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Lịch hẹn</label>
@@ -234,8 +175,9 @@
                                     echo '<img src="./image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
                                 }
                         ?>
-                        <!-- kt hiển thị danh sách lịch hẹn -->
+                        
                     </div>
+                    <!-- kt hiển thị danh sách lịch hẹn -->
                     <!-- Modal lịch hẹn-->
                     <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
                         <div class="modal-dialog">

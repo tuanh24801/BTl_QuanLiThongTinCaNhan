@@ -112,8 +112,16 @@ $(document).ready(function(){
         var diachi = $('#diachi').val();
         var sodienthoai = $('#sodienthoai').val();
         var email = $('#email').val();
+        var mota = $('#mota').val();
         $.post('http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulychinhsuathongtin.php',
-        {tennguoidung : tennguoidung,gioitinh : gioitinh,ngaysinh: ngaysinh,diachi : diachi,sodienthoai: sodienthoai,email : email},
+        {   tennguoidung : tennguoidung,
+            gioitinh : gioitinh,
+            ngaysinh: ngaysinh,
+            diachi : diachi,
+            sodienthoai: sodienthoai,
+            email : email,
+            mota : mota
+        },
          function(data){
             swal("Chỉnh sửa thành công",{
                 icon:"success",
@@ -157,6 +165,7 @@ $(document).ready(function(){
                 if(data != ""){
                     $('.modal-body').html(data);
                     
+                    
                 }else{
                     scrollToBottom();
                 }
@@ -175,7 +184,6 @@ $(document).ready(function(){
     //script cho tìm kiếm bạn bè trong tin nhắn
       $('#txtbanbe_tinnhan').keyup(function(){
         var timkiembanbe = $('#txtbanbe_tinnhan').val();
-
             $.post(
                 'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulytimkiem_banbetinhan.php',
                 {
@@ -185,10 +193,24 @@ $(document).ready(function(){
                     $('.list-group').html(data);
                 }
             )
-        
-
       })
     //kt script cho tìm kiếm bạn bè trong tin nhắn
+
+    //script cho tìm kiếm bạn bè trong trang cá nhân
+      $('#txtbanbe_trangcanhan').keyup(function(){
+        var timkiembanbe1 = $('#txtbanbe_trangcanhan').val();
+            $.post(
+                'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulytimkiem_banbetrangcanhan.php',
+                {
+                    timkiembanbe1 : timkiembanbe1
+                },
+                function(data){
+                    $('.dsbb').html(data);
+                }
+            )
+      })
+    //kt script cho tìm kiếm bạn bè trong trang cá nhân
+
 
     //script cho gửi lời mời kết bạn
         $('#loimoi').click(function(){
@@ -260,5 +282,170 @@ $(document).ready(function(){
     })
     //kt script cho gửi nhiệm vụ
 
+    //script cho đăng trạng thái
+    $('#btntrangthai').click(function(){
+        var txtnoidungtrangthai = $('#txtnoidungtrangthai').val();
+        $.post(
+            'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulydangtrangthai.php',
+            {
+                txtnoidungtrangthai : txtnoidungtrangthai
+            },
+            function(data){
+                swal("Hoàn thành!", "Đăng bài viết", "success").then((data)=>{
+                    location.reload();
+                }) 
+            }
+
+
+        )
+    })
+    //kt script cho đăng trạng thái
+
+    //script cho xóa bài viết trạng thái
+    $('.btnxoatrangthai').click(function(){
+        var xoa_id = $(this).closest("div").find("#id_trangthai").val();
+        swal({
+            title: "Xóa bài viết này?",
+            text: "Bài viết đã xóa không thể khôi phục được!!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              $.post('http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulyxoatrangthai.php', 
+                {id_trangthai :xoa_id,
+                delete_btn_set: 1},function(data){
+                    swal("Đã xóa trạng thái",{
+                        icon:"success",
+                    }).then((result) =>{
+                        location.reload();
+                    })
+                })
+            }
+          });
+    })
+    //kt script cho xóa bài viết trạng thái
+
+    //script cho tin nhan nhóm
+    $('#guitinnhan_nhom').click(function(){
+        $.post(
+            'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulytinnhannhom.php',
+            {noidung: $('#noidung_nhom').val(),
+            tinnhan_to: $('#tinnhan_to_nhom').val(),
+            tinnhan_from : $('#tinnhan_from').val(),
+            },
+            function(data){
+                $('#noidung_nhom').val("");
+                scrollToBottom();
+                
+            }
+        )
+    })
+    //kt script cho tin nhan nhom
+
+    // script cho Chat realtime nhóm
+    setInterval(function(){
+        $.post(
+            'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulyrealtime_nhom.php',
+            {
+            noidung: $('#noidung_nhom').val(),
+            tinnhan_to: $('#tinnhan_to_nhom').val(),
+            tinnhan_from : $('#tinnhan_from').val(),
+            },
+            function(data){
+                if(data != ""){
+                    $('#tinnhannhom').html(data);
+                    
+                    
+                }else{
+                    scrollToBottom1();
+                }
+            }
+        )
+    },400);
+    //kt script cho Chat realtime nhóm
+
+    // function cuộn xuống cuối đoạn chat
+        function scrollToBottom1(){
+            $('.modal-body1').scrollToBottom($('.modal-body')[0].scrollHeight);
+        }
+    //kt function cuộn xuống cuối đoạn chat
+
+    // script tạo nhóm
+        $('.btntaonhom').click(function(){
+            var tennhom = $(this).closest("div").find("#tennhom").val();
+            if(tennhom == ''){
+                swal("Vui lòng nhập tên nhóm",{
+                    icon:"warning",
+                })
+            }else{
+                $.post(
+                    'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulytaonhom.php',
+                    {
+                        tennhom : tennhom,
+                    },
+                    function(data){
+                        swal("Tạo nhóm thành công",{
+                            icon:"success",
+                        })
+                    }
+                )
+            }
+        })
+        
+    //kt script tạo nhóm
+
+
+    // script thêm thành viên vào nhóm
+        $('.btnthemtv').click(function(){
+            var id_nguoidung = $(this).closest("li").find("#id_themtv_nhom").val();
+            $.post(
+                'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulythemthanhvien.php',
+                {
+                    id_nguoidung: id_nguoidung,
+                },
+                function(data){
+                    swal("thêm thành viên thành công",{
+                        icon:"success",
+                    })
+                }
+            )
+        })
+    //kt script thêm thành viên vào nhóm
+
+    //script đóng modal refresh
+    $('.dongmodal_nhom').click(function(){
+       location.reload();
+    })
+    //kt script cho đóng modal refresh
+
+    //script cho tìm kiếm nhóm
+    $('#txtnhom').keyup(function(){
+        var timkiemnhom = $('#txtnhom').val();
+            $.post(
+                'http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulytimkiem_tennhom.php',
+                {
+                    timkiemnhom : timkiemnhom
+                },
+                function(data){
+                    $('.dsnhom').html(data);
+                }
+            )
+        })
+    //kt script cho tìm kiếm nhóm
+
+    //script tìm kiếm bạn bè trong ds nhóm
+    $('#txtbanbe_nhom').keyup(function(){
+        var tenban = $('#txtbanbe_nhom').val();
+        $.post('http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulytimkiembanbenhom.php',
+            {
+                tenban: tenban
+            }, function(data){
+                $('.dsbanbe_nhom').html(data);  
+            }
+        )
+    })
+    //kt script tìm kiếm bạn bè trong ds nhóm
 
 })

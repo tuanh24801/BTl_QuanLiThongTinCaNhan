@@ -48,17 +48,6 @@
                             <div class="">
                                 <label for="tennhom" class="col-form-label">Tên nhóm:</label>
                                 <input type="text" class="form-control mb-2" id="tennhom">
-                                <?php
-                                    $sql_id_nhom = "SELECT * FROM tb_nhom ORDER BY id_nhom DESC";
-                                    $result = mysqli_query($conn, $sql_id_nhom);
-                                    if(mysqli_num_rows($result) > 0){
-                                        $row = mysqli_fetch_assoc($result);
-                                        $id_nhom = $row['id_nhom']+1;
-                                    }else{
-                                        $id_nhom = 1;
-                                    }
-                                ?>
-                                <input type="hidden" class="form-control mb-2" value ="<?php echo $id_nhom ?>" id = "id_nhom">
                                 <button type="button" class="btn alert-success btntaonhom" >tạo<i class="fal fa-user-plus"></i></button>
                             </div>
                             <div class="mb-3">
@@ -73,7 +62,7 @@
                                     <button class="btn btn-outline-success" type="submit" name = "timkiem" id="timkiembanbe_nhom" ><i class="far fa-search"></i></button>
                                 </div>
                             </div>
-                        <ul class="list-group">
+                        <ul class="list-group dsbanbe_nhom">
                             <?php
                                 $tinnhan_from = $_SESSION['user_login'];
                                 $sql_banbe = "SELECT * FROM tb_banbe WHERE banbe_from = '$tinnhan_from'";
@@ -114,7 +103,7 @@
                     <!-- ds bạn bè -->
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary dongmodal_nhom" data-bs-dismiss="modal">Close</button>
                 </div>
                 </div>
             </div>
@@ -135,7 +124,8 @@
                 <!-- danh sách nhóm -->
                 <ul class="list-group dsnhom">
                 <?php
-                    $sql_dsnhom = "SELECT * FROM tb_nhom WHERE id_thanhvien = '$id_nguoidung'";
+                    $sql_dsnhom = "SELECT e.tennhom, o.id_thanhvien, o.id_nhom FROM tb_thanhviennhom o, tb_nhom e 
+                    WHERE id_thanhvien = '$id_nguoidung' AND e.id_nhom = o.id_nhom";
                     $result_dsnhom = mysqli_query($conn,$sql_dsnhom);
                     if(mysqli_num_rows($result_dsnhom)>0){
                         while($row_dsnhom = mysqli_fetch_assoc($result_dsnhom)){
@@ -149,6 +139,9 @@
                                 </li>
                             <?php
                         }
+                    }else{
+                        echo '<h5 class="text-center mt-5">Bạn chưa có nhóm </h5>';
+                        echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
                     }
                 
                 ?>
@@ -164,7 +157,8 @@
                                 <?php
                                     if(isset($_GET['tinnhan_to_nhom'])){
                                         $id_nhom= $_GET['tinnhan_to_nhom'];
-                                        $sql_tennhom= "SELECT * FROM tb_nhom WHERE id_nhom= '$id_nhom'";
+                                        $sql_tennhom = "SELECT * FROM tb_nhom
+                                        WHERE id_nhom = '$id_nhom'";
                                         $result_tennhom = mysqli_query($conn,$sql_tennhom);
                                         if(mysqli_num_rows($result_tennhom)>0){
                                             $row_tennhom = mysqli_fetch_assoc($result_tennhom);
@@ -174,7 +168,7 @@
                                         }
                                     }else{
                                         $id_nguoidung = $_SESSION['user_login'];
-                                        $sql_dsnhom = "SELECT * FROM tb_nhom WHERE id_thanhvien = '$id_nguoidung'";
+                                        $sql_dsnhom = "SELECT * FROM tb_thanhviennhom WHERE id_thanhvien = '$id_nguoidung'";
                                         $result_dsnhom = mysqli_query($conn,$sql_dsnhom);
                                         if(mysqli_num_rows($result_dsnhom) > 0){
                                             $row_dsnhom = mysqli_fetch_assoc($result_dsnhom);

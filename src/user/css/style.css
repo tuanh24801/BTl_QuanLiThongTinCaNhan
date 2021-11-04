@@ -148,6 +148,19 @@
     overflow-y:scroll; 
     overflow-x:hidden;
 }
+/* CSS cho nhóm */
+.modal-body1{
+    height: 450px;
+    overflow-y:scroll; 
+    overflow-x:hidden;
+}
+.Tennhom{
+    border-radius: 6px;
+    padding: 10px;
+    background-color: rgb(114, 112, 112);
+    color: rgb(199, 198, 198);
+}
+/* CSS cho nhóm */
 .khungchat{
     background-color: rgb(243, 243, 252);   
     border-radius: 12px;
@@ -157,7 +170,7 @@
 .Tenuser{
     border-radius: 6px;
     padding: 10px;
-    background-color: rgb(114, 112, 112);
+    background-color: rgb(56, 56, 56);
     color: rgb(199, 198, 198);
 }
 
@@ -234,16 +247,35 @@
 }
 .icon_trangcanhan{
     color: rgb(43, 184, 54);
+    border-radius: 10px;
+}
+.chucnangtrangcanhan a{
+    text-decoration: none;
 }
 .icon_trangcanhan:hover{
     background-color: rgb(49, 179, 77);
     color: white;
 
 }
+.thongtinngdung{
+    background-color: rgb(209, 208, 208);
+    border-radius: 10px;
+}
+.baivietnguoidung{
+    border: 1px solid rgb(61, 61, 61);
+    margin-left: 20px;
+}
 
 /* kt CSS cho trang ca nhan nguoi dung */
 
+.formtrangthai{
+    background-color: rgb(212, 212, 212);
+}
 
-
+/* CSS cho  nhóm */
+.nguoidung_nhom{
+    align-items: center;
+}
+/* CSS cho  nhóm */
 
 

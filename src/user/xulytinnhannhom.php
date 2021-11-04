@@ -16,7 +16,7 @@
     $sql = "INSERT INTO tb_tinnhan_nhom (tinnhan_from, tinnhan_to, noidung)
             VALUES ('$tinnhan_from', '$tinnhan_to','$noidung')";
     $result = mysqli_query($conn,$sql);
-    $sql_nhom = "SELECT * FROM tb_nhom WHERE id_nhom = '$tinnhan_to' AND id_thanhvien != '$tinnhan_from'";
+    $sql_nhom = "SELECT * FROM tb_thanhviennhom WHERE id_nhom = '$tinnhan_to' AND id_thanhvien != '$tinnhan_from'";
     $result_nhom = mysqli_query($conn,$sql_nhom);
     while($row_nhom = mysqli_fetch_assoc($result_nhom)){
         $id_nhom = $row_nhom['id_nhom'];

@@ -9,7 +9,8 @@
     if(isset($_POST['timkiemnhom'])){
         $dulieunhapvao = $_POST['timkiemnhom'];
         $id_user = $_SESSION['user_login'];
-        $sql_nhom = "SELECT * FROM tb_nhom WHERE id_thanhvien = $id_user AND tennhom LIKE '$dulieunhapvao%'";
+        $sql_nhom = "SELECT e.tennhom, o.id_thanhvien, o.id_nhom FROM tb_thanhviennhom o, tb_nhom e 
+                    WHERE id_thanhvien = '$id_user' AND e.id_nhom = o.id_nhom AND tennhom LIKE '$dulieunhapvao%'";
         $result_nhom = mysqli_query($conn,$sql_nhom);
         if(mysqli_num_rows($result_nhom)>0){
             while($row = mysqli_fetch_assoc($result_nhom)){
@@ -22,6 +23,8 @@
                     </li>
                 <?php
                 }
+            }else{
+
             }
         }
             

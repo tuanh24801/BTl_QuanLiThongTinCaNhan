@@ -207,6 +207,9 @@
                                             }
                                         }
                                     }
+                                }else{
+                                    echo '<h5 class="text-center mt-5">Danh sách bạn bè trống</h5>';
+                                    echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
                                 }
                             ?>
                             </ul>

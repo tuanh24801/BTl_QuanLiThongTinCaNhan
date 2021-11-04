@@ -1,147 +1,125 @@
 <?php
     include './menu_footer/menu.php';
     $id_nguoidung = $_GET['id_nguoidung'];
+    $id_nguoidung_from = $_SESSION['user_login'];
 ?>
 <!-- menu -->
 
     <!-- body -->
     <div class="container">
         <div class="body">
-            <div class="row mb-4">
-                <!-- ảnh đại diện và tên người dùng -->
-                <div class="col-lg-4 col-md-6">
+            <div class="row">
+                <div class="col-4 p-4">
                     <div class="card avatar_user mt-3">
-                        <img src="./image_user/avatar_female.png" class="card-img-top" alt="...">
-                        <!-- tên người dùng -->
+                        <?php
+                            include '../config/config.php';
+                            $sql = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_nguoidung";
+                            $result = mysqli_query($conn,$sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $tennguoidung = $row['tennguoidung'];
+                            $gioitinh = $row['gioitinh'];
+                            if($gioitinh == '0'){
+                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_female.png" class="card-img-top" class="img-fluid" alt="Sample image">';
+                            }else{
+                                echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/avatar_male.png" class="card-img-top" class="img-fluid" alt="Sample image">';
+                            }
+                        ?>
                         <div class="col">
-                            <?php
-                                include '../config/config.php';
-                                $sql = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_nguoidung";
-                                $result = mysqli_query($conn,$sql);
-                                if(mysqli_num_rows($result) > 0){
-                                    $row = mysqli_fetch_assoc($result);
-                                    $tennguoidung = $row['tennguoidung'];
-                                }
-                                echo '<h3 class="card-text text-center">'.$tennguoidung.'</h3>';
-                            ?>
+                                <h3 class="card-text text-center"><?php echo $tennguoidung ?></h3>
                         </div>
-                        <!-- kt tên người dùng -->
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-6 bangthongtincanhan">
-                    <!-- Chức năng người dùng -->
-                    <div class="row chucnanguser1">
-                        <!-- Form cập nhật nhiệm vụ -->
-                        <div class="card text-white bg-secondary mt-3 formnhiemvu">
-                            <div class="card-header">Thông tin người dùng</div>
-                            <div class="p-3">
-                                <div class="mt-2">Ngày sinh: </div>
-                                <div class="mt-2">Số điện thoại: </div>
-                                <div class="mt-2">Email: </div>
-                                <div class="mt-2">Địa chỉ: </div>
-                            </div>
-                            <div class="card-header"></div>
-                        </div>
-                    <!-- kt Form cập nhật nhiệm vụ -->
-                        <div class="col-sm-4 mt-2">
-                            <div class="card text-red alert-success">
-                                <div class="card-header text-center">Nhắn tin</div>
-                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php?tinnhan_to=<?php echo $id_nguoidung ?>">
-                                    <div class="card-body text-center icon_trangcanhan">
-                                        <i class="fal fa-comment-alt"></i>
-                                    </div>
-                                </a>
-                            </div>      
-                        </div>
-                        <!-- kt Nhắn tin -->
-
-                        <!-- Kết bạnn -->
-                        <div class="col-sm-4 mt-2">
-                            <div class="card text-red alert-success">
-                                <div class="card-header text-center">Kết bạn</div>
-                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulyguiketban.php?loimoi_to=<?php echo $id_nguoidung ?>">
-                                    <div class="card-body text-center icon_trangcanhan">
-                                        <i class="fal fa-user-plus"></i>
-                                    </div>
-                                </a>
-                            </div>      
-                        </div>
-                        <!-- kt Kết bạn  -->
-                        <!-- Kết bạnn -->
-                        <div class="col-sm-4 mt-2">
-                            <div class="card text-red alert-success">
-                                <div class="card-header text-center">Mời vào nhóm</div>
-                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulyguiketban.php?loimoi_to=<?php echo $id_nguoidung ?>">
-                                    <div class="card-body text-center icon_trangcanhan">
-                                        <i class="fal fa-address-card"></i>
-                                    </div>
-                                </a>
-                            </div>      
-                        </div>
-                        <!-- kt Kết bạn  -->
-                </div>
-                <!-- kt ảnh đại diện và tên người dùng -->
             </div>
-
-            <!-- bài đăng nhiệm vụ người dùng -->
-            <div class="row bangtinnhiemvu mt-3">
-                <div class="col-lg-8 col-md-6 nhiemvu_post">
-                <?php                
-                $sql_laynhiemvu = "SELECT * FROM tb_nhiemvu WHERE id_nguoidung = '$id_nguoidung' ORDER BY id_nhiemvu DESC";
-                $result_laynhiemvu = mysqli_query($conn,$sql_laynhiemvu);
-                if(mysqli_num_rows($result_laynhiemvu) > 0){
-                    echo '<h5 class="text-center">Nhiệm vụ</h5>';
-                    while($row = mysqli_fetch_assoc($result_laynhiemvu)){
-                ?>
-                    <div class="col-12">
-                            <div class="card text-black bg-light mb-3">
-                                <input type="hidden" value="<?php echo $row['tennhiemvu'] ?>" name = "tennhiemvu" id="tennhiemvu">
-                                <h5 class="card-header bangtintennhiemvu" id="tennhiemvu"><?php echo $row['tennhiemvu'] ?></h5>
-                                <p class="card-header" id="thoigiandang"><?php echo $row['thoigian'] ?></p>
-                            <div class="card-body N">
-                                <input type="hidden" value="<?php echo $row['noidung'] ?>" name = "noidungnv" id="noidungnv">
-                                <p class="card-text"><?php echo $row['noidung'] ?></p>
-                            </div>
+            <div class="row mt-2 mb-4">
+                <div class="col-2 chucnangtrangcanhan">
+                    <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php?tinnhan_to=<?php echo $id_nguoidung ?>">
+                        <div class="card-body text-center alert-success icon_trangcanhan">
+                            Nhắn tin  <i class="fal fa-comment-alt"></i>
                         </div>
-                    </div>
-                    <?php
-                        }
-                    }else{
-                        echo '<h5 class="text-center mt-5">Bạn chưa có nhiệm vụ nào</h5>';
-                        echo '<img src="./image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
-                    }
-                    ?>
+                    </a>
                 </div>
-                <!-- kt bài đăng nhiệm vụ người dùng -->
-                <!-- Lịch hẹn -->
-                <div class="col-lg-4 col-md-6 lichhen mt-2 p-2">
-                    <!-- hiển thị danh sách lịch hẹn -->
-                    <h5 class="text-center">Lịch hẹn</h5>
-                    <?php
-                        $sql_laylichhen = "SELECT * FROM tb_lichhen WHERE id_nguoidung = '$id_nguoidung' ORDER BY id_lichhen DESC";
-                        $result_laylichhen = mysqli_query($conn,$sql_laylichhen);
-                        if(mysqli_num_rows($result_laylichhen) > 0){
-                            while($row = mysqli_fetch_assoc($result_laylichhen)){
+                <?php
+                    $sql_banbe = "SELECT * FROM tb_banbe WHERE banbe_from = '$id_nguoidung_from' AND banbe_to='$id_nguoidung'";
+                    $result_banbe = mysqli_query($conn,$sql_banbe);
+                    if(mysqli_num_rows($result_banbe) > 0){
+                        ?>
+                            <div class="col-2 chucnangtrangcanhan">
+                                <a href="">
+                                    <div class="card-body text-center alert-success icon_trangcanhan">
+                                        Bạn bè <i class="far fa-check"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                    }else{
+                        ?>
+                            <div class="col-2 chucnangtrangcanhan">
+                                <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/xulyguiketban.php?loimoi_to=<?php echo $id_nguoidung ?>">
+                                    <div class="card-body text-center alert-success icon_trangcanhan">
+                                        Kết bạn <i class="fal fa-address-card"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                    }
+                ?>
+            </div>
+            
+            <div class="row">
+                <div class="col-8 thongtinngdung p-4">
+                        <h5>Thông tin người dùng</h5>
+                        <?php
+                            $sql_ttcanhan = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = '$id_nguoidung'";
+                            $result_ttcanhan = mysqli_query($conn,$sql_ttcanhan);
+                            if(mysqli_num_rows($result_ttcanhan)>0){
+                                $row_ttcanhan = mysqli_fetch_assoc($result_ttcanhan)
+                                ?>
+                                    <div class="">
+                                        <div class="mt">Ngày sinh: <?php echo $row_ttcanhan['ngaysinh']?></div>
+                                        <div class="mt-2">Số điện thoại: <?php echo $row_ttcanhan['sodienthoai']?></div>
+                                        <div class="mt-2">Email: <?php echo $row_ttcanhan['email']?></div>
+                                        <div class="mt-2">Địa chỉ: <?php echo $row_ttcanhan['diachi']?></div>
+                                        <div class="mt-2">
+                                            <p>
+                                                <?php echo $row_ttcanhan['mota']?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+            </div>
+            <div class="row">
+                <div class="col-8 nhiemvu_post mt-3">
+                    <h5>Bài viết</h5>
+                    <?php                
+                        $sql_trangthai = "SELECT * FROM tb_trangthai WHERE id_nguoidung = '$id_nguoidung' ORDER BY id_trangthai DESC";
+                        $result_trangthai = mysqli_query($conn,$sql_trangthai);
+                        if(mysqli_num_rows($result_trangthai) > 0){
+                            $sql = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = $id_nguoidung";
+                            $result = mysqli_query($conn,$sql);
+                                $row = mysqli_fetch_assoc($result);
+                                $tennguoidung = $row['tennguoidung'];
+                            while($row_trangthai = mysqli_fetch_assoc($result_trangthai)){
                     ?>
-                            <div class="card text-black bg-light mb-3 mt-3">
-                                <input type="hidden" value="<?php echo $row['tenlichhen']?>" name = "tenlich" id="tenlich">
-                                <h5 class="card-header" id="tenlich"><?php echo $row['tenlichhen']?></h5>
-                                <input type="hidden" value="<?php echo $row['thoigian']?>" name = "thoigianlich" id="thoigianlich">
-                                <p class="card-header" id="thoigian_lich">Thời hạn: <?php echo $row['thoigian']?></p>
-                                <div class="card-body N">
-                                    <input type="hidden" value="<?php echo $row['noidung']?>" name = "noidunglich" id="noidunglich">
-                                    <p class="card-text"><?php echo $row['noidung']?></p>
+                            <div class="col-12">
+                                <div class="mb-3 baivietnguoidung p-4">
+                                    <h5 class=""><?php echo $tennguoidung ?></h5>
+                                    <p class="" id="thoigiandang"><?php echo $row_trangthai['thoigian'] ?></p>
+                                    <div class=" N">
+                                        <p class=""><?php echo $row_trangthai['noidung'] ?></p>
+                                    </div>
                                 </div>
                             </div>
-                            <?php
-                                }
-                            }else{
-                                echo '<h5 class="text-center mt-5">Bạn chưa có lịch hẹn nào</h5>';
-                                echo '<img src="./image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
+                            <br>
+                    <?php
                             }
+                        }else{
+                            echo '<h5 class="text-center mt-5">Người dùng chưa cập nhật trạng thái</h5>';
+                            echo '<img src="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/image_user/image_notFound.jpg" class="img-fluid" alt="Sample image" >';
+                        }
                     ?>
                 </div>
-                <!-- kt hiển thị danh sách lịch hẹn -->
             </div>
         </div>
     </div>

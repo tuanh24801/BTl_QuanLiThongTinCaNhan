@@ -28,9 +28,18 @@
                 header('Location: dangki.php?error=Gmail đã tồn tại');
                 exit();
             }else{
+                $sql_tk = "SELECT * FROM tb_taikhoan ORDER BY id_taikhoan  DESC";
+                $result_tk = mysqli_query($conn,$sql_tk);
+                $row_tk = mysqli_fetch_assoc($result_tk);
+                $id_nguoidung = $row_tk['id_taikhoan'] + 1;
+
+                $sql_themnguoidung = "INSERT INTO tb_nguoidung(id_nguoidung, tennguoidung, email) 
+                                                VALUES('$id_nguoidung', '$tennguoidung', '$email')";
+                $result_themnguoidung = mysqli_query($conn,$sql_themnguoidung);
+                $id_taikhoan = $id_nguoidung;
                 $code = md5(uniqid(rand(),true));
                 $pass_hash = password_hash($matkhau_2,PASSWORD_DEFAULT);
-                $sql2 = "INSERT INTO tb_taikhoan(tentaikhoan,tennguoidung ,email, matkhau, code) VALUES ('$tentaikhoan','$tennguoidung' ,'$email', '$pass_hash', '$code')";
+                $sql2 = "INSERT INTO tb_taikhoan(id_taikhoan,tentaikhoan,tennguoidung ,email, matkhau, code, id_nguoidung) VALUES ('$id_taikhoan','$tentaikhoan','$tennguoidung' ,'$email', '$pass_hash', '$code','$id_nguoidung')";
                 $result2 = mysqli_query($conn,$sql2);
                 if($result2 > 0){
                     sendEmail($email,$code);

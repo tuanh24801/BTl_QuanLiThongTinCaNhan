@@ -274,7 +274,7 @@ $(document).ready(function(){
                 noidungnv : noidungnv,
             },
             function(data){
-                swal("Đã gửi lịch hẹn",{
+                swal("Đã gửi nhiệm vụ",{
                     icon:"success",
                 })
             }

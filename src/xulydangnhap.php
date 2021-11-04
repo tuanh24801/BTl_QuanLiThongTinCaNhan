@@ -15,6 +15,18 @@
                     }else{
                         $pass_hash = $row['matkhau'];
                         $id_nguoidung = $row['id_taikhoan'];
+                        if($row['tk_khach'] == '1' &&$row['matkhau'] == $matkhau){
+                            $sql_nguoidungkhach = "SELECT * FROM tb_taikhoan WHERE id_nguoidung = '$id_nguoidung'";
+                            $result_nguoidungkhach = mysqli_query($conn,$sql_nguoidungkhach);
+                            if(mysqli_num_rows($result_nguoidungkhach) > 0){
+                                $row_1 = mysqli_fetch_assoc($result_nguoidungkhach);
+                                $_SESSION['user_login'] = $row_1['id_nguoidung'];
+                                header('location: ./user/index.php');
+                                exit();
+                            }
+                        }else{
+                            header("location: dangnhap.php?error= Đăng nhập tài khoản khách thất bại user");
+                        }
                         if(password_verify($matkhau,$pass_hash)){
                             $sql_nguoidung = "SELECT * FROM tb_nguoidung WHERE id_nguoidung = '$id_nguoidung'";
                             $result_nguoidung = mysqli_query($conn,$sql_nguoidung);
@@ -23,8 +35,6 @@
                                 $_SESSION['user_login'] = $row['id_nguoidung'];
                                 header('location: ./user/index.php');
                             }
-                            // $_SESSION['user_login'] = $tentaikhoan;
-                            // header('location: ./user/index.php');
                         }else{
                             header("location: dangnhap.php?error= Đăng nhập thất bại user");
                         }

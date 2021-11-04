@@ -279,3 +279,26 @@
 /* CSS cho  nhóm */
 
 
+<<<<<<< HEAD
+=======
+/* CSS  cho timkiem*/
+.box_user_timkiem a{
+    text-decoration: none;
+}
+.box_user_timkiem p{
+    font-weight: 700;
+    color: springgreen;
+}
+/* kt CSS  cho timkiem*/
+/* CSS cho lời mời kết bạn */
+.form_loimoi{
+    align-items: center;
+    background-color: rgb(241, 241, 241);
+    box-shadow: 7px 7px 4px rgb(228, 228, 228);
+}
+.form_loimoi img{
+    width: 90%;
+}
+/* kt CSS cho lời mời kết bạn */
+
+>>>>>>> d496685cb297c02670aee34746d80f54fcdb3dcd

@@ -13,7 +13,7 @@
 .sidebar-nav{
     width: var(--offcanvas-width);
 }
-@media(min-width: 992px){
+@media(min-width: 1420px){
     body{
         overflow: auto !important;
     }
@@ -30,3 +30,147 @@
         height: calc(100% - var(--topNavbarHeight));
     }
 }
+
+.dsnhiemvu{
+    align-items: center;
+}
+.dslichhen{
+    align-items: center;
+}
+.lidsnhiemvu a{
+     text-decoration: none;
+     color: rgb(92, 92, 92);
+}
+.chucnanguser1{
+    align-items: center;
+}
+
+/* CSS cho tinnhan */
+.profile_user{
+    align-items: center;
+}
+.banbe_user ul li{
+    list-style: none;
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 12px;
+    word-wrap:break-word;
+}
+.banbe_user ul li:hover{
+ 
+    background-color: rgb(248, 123, 123);
+}
+.banbe_user ul li img{
+    max-width: 50px;
+}
+.banbe_user ul li a{
+    text-decoration: none;
+    color: rgb(49, 49, 49);
+    font-weight: 700;
+}
+.banbe_user{
+    height: 600px;
+    background-color: #d1cece;
+    overflow-y: scroll;
+    border-radius: 12px;
+}
+.modal-body{
+    height: 450px;
+    overflow-y:scroll; 
+    overflow-x:hidden;
+}
+.khungchat{
+    background-color: rgb(243, 243, 252);   
+    border-radius: 12px;
+    box-shadow: 7px 7px 4px rgb(177, 176, 176);
+
+}
+.Tenuser{
+    border-radius: 6px;
+    padding: 10px;
+    background-color: rgb(114, 112, 112);
+    color: rgb(199, 198, 198);
+}
+
+.noidungphai{
+    text-align:right;
+}
+.noidungphai p{
+    background-color:rgb(61, 61, 61);
+    color: white; 
+    word-wrap:break-word;
+    display:inline-block;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    border-radius:10px;
+    max-width: 70%;
+}
+.noidungtrai{
+    text-align:left;
+}
+.noidungtrai p {
+    background-color:rgb(228, 228, 228); 
+    word-wrap:break-word;
+    color: black;
+    display:inline-block;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    border-radius:10px;
+    max-width: 70%;
+}
+.btn_guidi{
+    border: 1px solid white;
+    font-weight: 700;
+    color: rgb(247, 226, 226);
+    background-color: rgb(241, 133, 114);
+}
+.btn_guidi:hover{
+    border: 1px solid rgb(240, 83, 83);
+    color: rgb(241, 133, 114);
+    background-color: rgb(247, 226, 226);
+}
+
+/* kt CSS  cho tin nhan*/
+
+
+/* CSS cho trang ca nhan người dùng */
+.icon_trangcanhan{
+    color: rgb(43, 184, 54);
+    border-radius: 10px;
+}
+.chucnangtrangcanhan a{
+    text-decoration: none;
+}
+.icon_trangcanhan:hover{
+    background-color: rgb(49, 179, 77);
+    color: white;
+
+}
+.thongtinngdung{
+    background-color: rgb(209, 208, 208);
+    border-radius: 10px;
+}
+.baivietnguoidung{
+    border: 1px solid rgb(61, 61, 61);
+    margin-left: 20px;
+}
+/* kt CSS cho trang ca nhan người dùng */
+
+/* CSS cho ds nhóm*/
+.dsnhom{
+    align-items: center;
+    background-color: rgb(221, 221, 221);
+    border: 1px solid rgb(136, 136, 136);
+}
+.tennhom{
+
+}
+
+.classa a{
+    text-decoration: none;
+    color: white;
+}
+/* kt CSS cho ds nhóm */

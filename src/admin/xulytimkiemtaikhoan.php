@@ -7,10 +7,10 @@
 <?php
     $tentaikhoan = $_POST['tentaikhoan'];
     include '../config/config.php';
-    $sql_timkiemtaikhoan = "SELECT * FROM tb_taikhoan WHERE tentaikhoan LIKE '$tentaikhoan%'";
+    $sql_timkiemtaikhoan = "SELECT * FROM tb_taikhoan WHERE tentaikhoan LIKE '$tentaikhoan%' AND muc != '1'";
     $result_timkiemtaikhoan  = mysqli_query($conn,$sql_timkiemtaikhoan);
     if(mysqli_num_rows($result_timkiemtaikhoan)>0){
-?>
+    ?>
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -22,10 +22,9 @@
                     <th scope="col">Tùy chỉnh</th>
                 </tr>
             </thead>
-<?php
+        <?php
         while($row = mysqli_fetch_assoc($result_timkiemtaikhoan)){
-?>          
-            
+        ?>          
             <tbody>
             <tr>
             <th scope="row"><?php echo $row['id_taikhoan']?></th>
@@ -43,23 +42,20 @@
             <td><a href = "chinhsuataikhoan.php?id=<?php echo $row['id_taikhoan']?>" class="btn alert-light"><i class="fal fa-user-edit"></i></a></td>
             </tr>
             </tbody> 
-<?php
-        }
-    }else{
-?>
-            <thead class="thead-dark">
+        <?php
+            }
+        }else{
+        ?>
+            <thead class="alert-light">
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tên tài khoản</th>
-                    <th scope="col">Tên người dùng</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Chi tiết</th>
-                    <th scope="col">Trạng thái</th>
-                    <th scope="col">Tùy chỉnh</th>                    
+                    <th scope="col">
+                        <h5 class="text-center">Không có kết quả</h5>
+                        <img src="../admin/image_admin/img_notFound.jpg" class="img-fluid" alt="Sample image">
+                    </th>               
                 </tr>
             </thead>
             
 <?php
-
+ 
     }
 ?>

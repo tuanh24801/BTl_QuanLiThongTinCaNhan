@@ -7,9 +7,10 @@
 <?php
     include '../config/config.php';
     $id_nguoidung = $_SESSION['user_login'];
-    $tennhiemvu = $_POST['data_1'];
-    $noidungnhiemvu = $_POST['data_2'];
-    $sql = "INSERT INTO tb_nhiemvu(tennhiemvu, noidung, id_nguoidung)
-            VALUES ('$tennhiemvu', '$noidungnhiemvu', '$id_nguoidung')";
+    $noidung = $_POST['noidung'];
+    $tenlichhen = $_POST['tenlichhen'];
+    $thoigian = $_POST['thoigian'];
+    $sql = "INSERT INTO tb_lichhen(tenlichhen, noidung,thoigian, id_nguoidung)
+            VALUES ('$tenlichhen', '$noidung', '$thoigian','$id_nguoidung')";
     $result = mysqli_query($conn,$sql);
 ?>

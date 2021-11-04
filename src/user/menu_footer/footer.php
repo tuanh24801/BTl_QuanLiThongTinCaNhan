@@ -1,9 +1,9 @@
         <!-- footer -->
-        <div class="footer">
+        <!-- <div class="footer fluid">
             <div class="row text-center">
                 <p >Quản lí thông tin cá nhân - CSE - TLU <a href="vietcodedi.com">vietcode.com</a></p>   
             </div>
-        </div>
+        </div> -->
         <!-- kt footer -->
     </div>
     

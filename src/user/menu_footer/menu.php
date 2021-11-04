@@ -19,11 +19,11 @@
         <!-- menu -->
         <div class="menu row">
             <nav class="nav nav-pills nav-fill">
-
-                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/index.php">Trang cá nhân</a>
+                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/trangcanhan.php">Trang cá nhân</a>
+                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/index.php">Nhiệm vụ/Lịch hẹn</a>
                 <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/timkiem.php">Tìm kiếm</a>
                 <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/tinnhan.php">Tin nhắn</a>
-                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/">Thông báo</a>
+                <a class="nav-link" href="http://localhost/BTL_QuanLiThongTinCaNhan/src/user/nhom.php">Nhóm</a>
                 <div class="btn-group chucnang">
                     <button type="button" class="btn alert-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fal fa-cogs"></i>  

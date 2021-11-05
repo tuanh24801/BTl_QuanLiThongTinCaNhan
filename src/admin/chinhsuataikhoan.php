@@ -94,7 +94,7 @@
                 <div class="form-group row">
                     <label for="btn" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-success" id="chinhsua">Lưu lại</button>
+                        <button type="button" class="btn btn-success" id="chinhsua">Lưu lại</button>
                     </div>
                 </div>
             </form>

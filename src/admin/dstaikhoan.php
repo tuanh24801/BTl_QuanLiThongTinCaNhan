@@ -52,7 +52,7 @@
                 ?>
                 <td><a href = "chinhsuataikhoan.php?id=<?php echo $row['id_taikhoan']?>" class="btn alert-light"><i class="fal fa-user-edit"></i></a></td>
                 <input type="hidden" value="<?php echo $row['id_taikhoan'] ?>" id="xoa_id">
-                <td><button type="button" class="btn btn-danger btn_xoatk" id="">Xóa</button></td>
+                <td><button type="button" class="btn btn-danger btn_xoatk" id=""><i class="fal fa-trash-alt"></i></button></td>
                 </tr>
                 </tbody> 
             <?php

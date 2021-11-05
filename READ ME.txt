@@ -1,1 +1,16 @@
-abc
+ 
+---- ADMIN
+-Tài khoản: admin 
+-Mật khẩu: admin
+
+
+
+---- USER
+-Tài khoản: Visitor2
+-Mật khẩu: 123
+
+-Tài khoản: user3
+-Mật khẩu: 123
+
+-Tài khoản: user4
+-Mật khẩu: 123

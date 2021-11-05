@@ -191,7 +191,7 @@
                                         while($row = mysqli_fetch_assoc($result_user)){
                                             ?>
                                                 <li class="mt-4 list-group-item" >
-                                                    <a href="?tinnhan_to=<?php echo $row['id_nguoidung'] ?>">
+                                                    <a href="tinnhan.php?tinnhan_to=<?php echo $row['id_nguoidung'] ?>">
                                                     <?php
                                                         $gioitinh = $row['gioitinh'];
                                                         if($gioitinh == '0'){

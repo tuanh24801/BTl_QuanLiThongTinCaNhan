@@ -61,7 +61,9 @@ $(document).ready(function(){
             'http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/xulychinhsuataikhoan.php',
             {id_taikhoan: id_taikhoan, tentaikhoan: tentaikhoan, tennguoidung: tennguoidung, email: email, matkhau: matkhau, trangthai:trangthai},
             function(data){
-                alert(data);
+                swal('Chỉnh sửa tài khoản thành công',{
+                    icon:"success",
+                })
             }
         )
     })

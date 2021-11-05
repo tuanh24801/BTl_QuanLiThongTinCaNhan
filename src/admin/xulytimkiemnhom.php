@@ -23,11 +23,12 @@
                         <div class="col-4 tennhom">
                             <h5><?php echo $row_dsnhom['tennhom'] ?></h5>
                         </div>
-                        <div class="col-2">
-                            <button type="button" class="btn btn-success">Xem thành viên</button>
-                        </div>
-                        <div class="col-2">
-                            <button type="button" class="btn btn-success">Thêm thành viên</button>
+                        <div class="col-2"></div>
+                        <div class="col-2 classa">
+                            <input type="hidden" value = "<?php echo $row_dsnhom['id_nhom']?>" id="id_nhom">
+                            <button type="button" class="btn btn-info btnxemthanhvien">
+                                <a href="dsthanhviennhom.php?id_nhom=<?php echo $row_dsnhom['id_nhom']; ?>">xem thành viên</a>  
+                            </button>
                         </div>
                     </div>
                 <?php

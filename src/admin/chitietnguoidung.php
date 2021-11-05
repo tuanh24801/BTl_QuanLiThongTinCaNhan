@@ -16,9 +16,7 @@
                     <th scope="col">Ngày sinh</th>
                     <th scope="col">Địa chỉ</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Mã tài khoản</th>
-                    <th scope="col">Ảnh đại diện</th>
-                    <th scope="col">Giới tính </th>
+                    <th scope="col">Giới tính</th>
                 </tr>
             </thead>
             <?php
@@ -36,8 +34,6 @@
                             <th scope="row"><?php echo $row['ngaysinh'] ?></th>
                             <th scope="row"><?php echo $row['diachi'] ?></th>
                             <th scope="row"><?php echo $row['email'] ?></th>
-                            <th scope="row"><?php echo $row['id_taikhoan'] ?></th>
-                            <th scope="row"><?php echo $row['anhdaidien'] ?></th>
                             <?php
                                 if($row['gioitinh'] == '0'){
                                     echo '<th scope="row">Nữ</th>';

@@ -103,7 +103,7 @@
                     </li>
                     <li>
                         <a href="http://localhost/BTL_QuanLiThongTinCaNhan/src/admin/dslichhen.php" class="nav-link px-3 active">
-                            <span><i class="fas fa-rocket"></i></i></span>
+                            <span><i class="far fa-calendar"></i></span>
                             <span>Lịch hẹn</span>
                         </a>
                     </li>

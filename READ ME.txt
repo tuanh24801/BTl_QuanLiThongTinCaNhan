@@ -1,4 +1,9 @@
- 
+
+Đưa thư mục project vào htdoc trong xampp, nhập file sql vào mysql
+khởi chạy bằng link: http://localhost/BTL_QuanLiThongTinCaNhan
+
+
+Tài khoản có sẵn trong database
 ---- ADMIN
 -Tài khoản: admin 
 -Mật khẩu: admin
